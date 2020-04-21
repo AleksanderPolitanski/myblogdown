@@ -1,6 +1,6 @@
 ---
-title: "Covid19 analizy"
-date: 2020-04-21
+title: "Analizy zachorowań na Covid19"
+date: 2020-04-02
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
 
@@ -14,6 +14,7 @@ library(dplyr)
 library(openxlsx)
 library(ggplot2)
 library(ggrepel)
+library(knitr)
 
 options(scipen=999)
 
@@ -374,9 +375,10 @@ p7<-ggplot(agg_eu_gdp, aes(x= GDP.per.capita.in.Dollars, y=Cases_per_million)) +
 ##Polska na tle reszty świata
 Poniższy wykres przedstawia stytystyki zachorowań na Covid-19 w przeliczeniu na milion mieszkańców, na przestrzeni kolejnych dni trwania epidemii. Pierwszy dzień epidemii jest pierwszym dniem, w którym odnotowano zachorowanie (dla Polski jest to inna data niż dla reszty świata). Średnia zachorowań dla świata jest wyliczona tylko dla krajów, w których wystąpiło dotąd przynajmniej jedno zachorowanie. 
 
-```{r fig.height = 7, fig.width = 14, fig.align = "center", echo = FALSE}
+```{r fig.height = 5, fig.width = 10, fig.align = "center", echo = FALSE}
 plot(p1, echo = FALSE)
 ```
+
 
 Z powyższych danych wynika, że sytuacja w Polsce jest średnio gorsza niż na świecie. 
 Dane światowe są jednak bardzo zróżnicowane, co pokażą kolejne wykresy. Europa radzi sobie z epidemią znacznie gorzej niż chociażby Azja, co może częściowo tłumaczyć niekorzystne statystyki Polski na tle całej reszty świata. Wczoraj - `r Sys.Date()-1` - w Polsce zachorowało `r data_without_0[data_without_0$PolskaVsSwiat=="Poland" & data_without_0$ranks==as.character(pol_n), "Cases"]`  osób, co w liczbie na milion mieszkańców  przekłada się na wartość `r round(as.numeric(agg_pol_rest[agg_pol_rest$PolskaVsSwiat=="Poland" & agg_pol_rest$ranks==as.character(pol_n),"Cases_per_million"]),2)`. 
@@ -385,7 +387,7 @@ Dane światowe są jednak bardzo zróżnicowane, co pokażą kolejne wykresy. Eu
 ##Porównanie sytuacji na kontynentach
 Logika poniższego wykresu jest identyczna z poprzednim. Zachorowania na milion mieszkańców, na przestrzeni kolejnych dni trwania epidemii. Tym razem w podziale na kontynenty. 
 
-```{r fig.height = 7, fig.width = 14, fig.align = "center", echo = FALSE}
+```{r fig.height = 5, fig.width = 10, fig.align = "center", echo = FALSE}
 plot(p2, echo = FALSE)
 ```
 
@@ -393,39 +395,41 @@ Sytuacja w Azji wygląda na opanowaną. Niepokojąca tendencja wzrostu przypadk�
 
 ##Polska na tle pięciu krajów o najwyższej średniej zachorowań na milion mieszkańców
 Logika wykresu pozostaje ta sama. Kraje wybrano spośród tych, których populacja była większa niż 2 miliony mieszkańców, żeby uniknąć porównania z bardzo małymi państwami o całkowicie innej specyfice, na przykład Wyspami Owczymi, gdzie zanotowano bardzo wysokie wskaźniki zachorowań.
-```{r fig.height = 7, fig.width = 14, fig.align = "center", echo = FALSE}
+```{r fig.height = 5, fig.width = 10, fig.align = "center", echo = FALSE}
 plot(p3, echo = FALSE)
 ```
 Sytuacja w Polsce na tle tych państw wygląda obiecująco.
 
 ##Polska na tle pięciu krajów o najniższej średniej zachorowań na milion mieszkańców
 Do porównania wybrano tylko te kraje, których populacja była większa niż 2 miliony mieszkańców a oprócz tego epidemia trwała w nich conajmniej tak długo jak w Polsce.
-```{r fig.height = 7, fig.width = 14, fig.align = "center", echo = FALSE}
+```{r fig.height = 5, fig.width = 10, fig.align = "center", echo = FALSE}
 plot(p4, echo = FALSE)
 ```
 Kwestią otwartą pozostaje pytanie dlaczego te państwa notują znacznie mniej zachorowań niż Polska w przeliczeniu na milion mieszkańców. Czy jest to efekt prowadzonej polityki (Azja?), a może w danych krajach prowadzi się znacznie mniej testów? 
 
 ## Polska na tle pięciu krajów o najwyższej średniej zachorowań na milion mieszkańców w regionie Europy Wschodniej (i Środkowo-Wschodniej)
 Pod względem liczby zachorowań na milion mieszkańców, Polska znajduje się na `r pol_east_rank` miejscu z `r max_east_rank`. Innymi słowy `r max_east_rank-(max_east_rank-pol_east_rank)-1` krajów regionu ma wyższe wskaźniki zachorowań niż Polska. 
-```{r fig.height = 7, fig.width = 14, fig.align = "center", echo = FALSE}
+```{r fig.height = 5, fig.width = 10, fig.align = "center", echo = FALSE}
 plot(p5, echo = FALSE)
 ```
 
 ## Zachorowania na milion mieszkańców a PKB per capita
 Koronawirus atakuje na razie najmocniej kraje bogate. Na ogół, im kraj jest bogatszy, tym więcej w nim zachorowań na milion mieszkańców. Znaczną większość krajów bogatych, najbardziej cierpiących z powodu pandemii, stanowią kraje Europejskie. Zwracam uwagę na skalę wykresu, która tym razem jest logarytmiczna (wartości nie rosną liniowo). 
-```{r fig.height = 7, fig.width = 14, fig.align = "center", echo = FALSE}
+```{r fig.height = 5, fig.width = 10, fig.align = "center", echo = FALSE}
 plot(p6, echo = FALSE)
 ```
 Jak na względnie bogaty kraj, Polska wygląda w tym zestawieniu korzystnie pod względem średniej liczby zachorowań na milion mieszkańców. Następnym razem sprawdzę jak wygląda to samo zestawienie w samej Europie, z zaznaczeniem krajów Zachodnich i Wschodnich.
 
 ## Zachorowania na milion mieszkańców a PKB per capita w Europie
 Ten sam wykres co wyżej dla Europy, w podziale na subregiony
-```{r fig.height = 7, fig.width = 14, fig.align = "center", echo = FALSE}
+```{r fig.height = 5, fig.width = 10, fig.align = "center", echo = FALSE}
 plot(p7, echo = FALSE)
 ```
 
 ******
 [Źródło danych 1](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide)
+
+
 [Źródło danych 2](https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD)
 
 Autor Aleksander Politański
