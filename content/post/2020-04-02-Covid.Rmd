@@ -3,6 +3,8 @@ title: "Analizy zachorowań na Covid19"
 date: 2020-04-02
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
+fig_height: 4
+fig_width: 6
 
 ---
 ###Analizy na podstawie danych z 01 kwietnia
@@ -88,14 +90,14 @@ cols <- c ("blue")
 names(cols)<-unique(agg_pol_rest[agg_pol_rest$PolskaVsSwiat!="Poland","PolskaVsSwiat"])
 cols <- c(cols, "Poland"="red")
 
+
 p1<-ggplot(data = agg_pol_rest, aes(x = ranks, y = Cases_per_million, color = PolskaVsSwiat, group = PolskaVsSwiat)) + 
   geom_line(size=1.2) +
   geom_point(size=1.5) +
   labs(x = "Dni epidemii", y = "Zachorowania per milion") +
   scale_y_continuous(breaks = seq(0,max(agg_pol_rest$Cases_per_million),1), limits = c(0,max(agg_pol_rest$Cases_per_million))) +
-  theme(panel.grid.major = element_line(colour = "grey"), 
-  panel.grid.minor = element_line(colour = "grey", 
-    size = 0.25), axis.text.x = element_text(angle = 45,colour = "black"), 
+  scale_x_discrete(breaks = seq(0,max(as.numeric(agg_pol_rest$ranks)),10) ) +
+  theme(axis.text.x = element_text(angle = 45,colour = "black"), 
     axis.text.y = element_text(colour = "black"), 
     legend.title = element_blank(),
     axis.title.x = element_text(size = 14),
@@ -143,9 +145,8 @@ p2<-ggplot(data = agg_continents, aes(x = ranks, y = Cases_per_million, color = 
   geom_point(size=1.5) +
   labs(x = "Dni epidemii", y = "Zachorowania per milion") +
   scale_y_continuous(breaks = seq(0,max(agg_continents$Cases_per_million),10), limits = c(0,max(agg_continents$Cases_per_million)) ) +
-  theme(panel.grid.major = element_line(colour = "grey"), 
-  panel.grid.minor = element_line(colour = "grey", 
-    size = 0.25), axis.text.x = element_text(angle = 45,colour = "black"), 
+  scale_x_discrete(breaks = seq(0,max(as.numeric(agg_continents$ranks)),10) ) +
+  theme(axis.text.x = element_text(angle = 45,colour = "black"), 
     axis.text.y = element_text(colour = "black"), 
     legend.title = element_blank(),
     axis.title.x = element_text(size = 14),
@@ -181,9 +182,8 @@ p3<-ggplot(data = agg_countries_top, aes(x = ranks, y = Cases_per_million, color
   geom_point(size=1.5) +
   labs(x = "Dni epidemii", y = "Zachorowania per milion") +
   scale_y_continuous(breaks = seq(0,max(agg_countries_top$Cases_per_million),10), limits = c(0,max(agg_countries_top$Cases_per_million)) ) +
-  theme(panel.grid.major = element_line(colour = "grey"), 
-  panel.grid.minor = element_line(colour = "grey", 
-    size = 0.25), axis.text.x = element_text(angle = 45,colour = "black"), 
+  scale_x_discrete(breaks = seq(0,max(as.numeric(agg_countries_top$ranks)),10) ) +
+  theme(axis.text.x = element_text(angle = 45,colour = "black"), 
     axis.text.y = element_text(colour = "black"), 
     legend.title = element_blank(),
     axis.title.x = element_text(size = 14),
@@ -230,16 +230,14 @@ p4<-ggplot(data = agg_countries_bottom, aes(x = ranks, y = Cases_per_million, co
   geom_point(size=1.5) +
   labs(x = "Dni epidemii", y = "Zachorowania per milion") +
   scale_y_continuous(breaks = seq(0,max(agg_countries_bottom$Cases_per_million),1), limits = c(0,max(agg_countries_bottom$Cases_per_million)) ) +
-  theme(panel.grid.major = element_line(colour = "grey"), 
-  panel.grid.minor = element_line(colour = "grey", 
-    size = 0.25), axis.text.x = element_text(angle = 45,colour = "black"), 
+  scale_x_discrete(breaks = seq(0,max(as.numeric(agg_countries_bottom$ranks)),10) ) +
+  theme(axis.text.x = element_text(angle = 45,colour = "black"), 
     axis.text.y = element_text(colour = "black"), 
     legend.title = element_blank(),
     axis.title.x = element_text(size = 14),
     axis.title.y = element_text(size = 16),
     panel.background = element_rect(fill = "white") ) +
   scale_colour_manual(values = cols)
-
 
 
 
@@ -275,15 +273,15 @@ p5<-ggplot(data = agg_east_countries_top, aes(x = ranks, y = Cases_per_million, 
   geom_point(size=1.5) +
   labs(x = "Dni epidemii", y = "Zachorowania per milion") +
   scale_y_continuous(breaks = seq(0,max(agg_east_countries_top$Cases_per_million),10), limits = c(0,max(agg_east_countries_top$Cases_per_million)) ) +
-  theme(panel.grid.major = element_line(colour = "grey"), 
-  panel.grid.minor = element_line(colour = "grey", 
-    size = 0.25), axis.text.x = element_text(angle = 45,colour = "black"), 
+  scale_x_discrete(breaks = seq(0,max(as.numeric(agg_east_countries_top$ranks)),10) ) +
+  theme(axis.text.x = element_text(angle = 45,colour = "black"), 
     axis.text.y = element_text(colour = "black"), 
     legend.title = element_blank(),
     axis.title.x = element_text(size = 14),
     axis.title.y = element_text(size = 16),
     panel.background = element_rect(fill = "white") ) +
   scale_colour_manual(values = cols)
+
 
 agg_east_countries$ranking <- rank(x = -agg_east_countries$Cases_per_million)
 pol_east_rank<-as.numeric(agg_east_countries[agg_east_countries$Countries.and.territories=="Poland","ranking"])
@@ -375,7 +373,7 @@ p7<-ggplot(agg_eu_gdp, aes(x= GDP.per.capita.in.Dollars, y=Cases_per_million)) +
 ##Polska na tle reszty świata
 Poniższy wykres przedstawia stytystyki zachorowań na Covid-19 w przeliczeniu na milion mieszkańców, na przestrzeni kolejnych dni trwania epidemii. Pierwszy dzień epidemii jest pierwszym dniem, w którym odnotowano zachorowanie (dla Polski jest to inna data niż dla reszty świata). Średnia zachorowań dla świata jest wyliczona tylko dla krajów, w których wystąpiło dotąd przynajmniej jedno zachorowanie. 
 
-```{r fig.height = 5, fig.width = 10, fig.align = "center", echo = FALSE}
+```{r echo = FALSE, warning=FALSE}
 plot(p1, echo = FALSE)
 ```
 
@@ -387,7 +385,7 @@ Dane światowe są jednak bardzo zróżnicowane, co pokażą kolejne wykresy. Eu
 ##Porównanie sytuacji na kontynentach
 Logika poniższego wykresu jest identyczna z poprzednim. Zachorowania na milion mieszkańców, na przestrzeni kolejnych dni trwania epidemii. Tym razem w podziale na kontynenty. 
 
-```{r fig.height = 5, fig.width = 10, fig.align = "center", echo = FALSE}
+```{r echo = FALSE, warning=FALSE}
 plot(p2, echo = FALSE)
 ```
 
@@ -395,41 +393,39 @@ Sytuacja w Azji wygląda na opanowaną. Niepokojąca tendencja wzrostu przypadk�
 
 ##Polska na tle pięciu krajów o najwyższej średniej zachorowań na milion mieszkańców
 Logika wykresu pozostaje ta sama. Kraje wybrano spośród tych, których populacja była większa niż 2 miliony mieszkańców, żeby uniknąć porównania z bardzo małymi państwami o całkowicie innej specyfice, na przykład Wyspami Owczymi, gdzie zanotowano bardzo wysokie wskaźniki zachorowań.
-```{r fig.height = 5, fig.width = 10, fig.align = "center", echo = FALSE}
+```{r echo = FALSE, warning=FALSE}
 plot(p3, echo = FALSE)
 ```
 Sytuacja w Polsce na tle tych państw wygląda obiecująco.
 
 ##Polska na tle pięciu krajów o najniższej średniej zachorowań na milion mieszkańców
 Do porównania wybrano tylko te kraje, których populacja była większa niż 2 miliony mieszkańców a oprócz tego epidemia trwała w nich conajmniej tak długo jak w Polsce.
-```{r fig.height = 5, fig.width = 10, fig.align = "center", echo = FALSE}
+```{r echo = FALSE, warning=FALSE}
 plot(p4, echo = FALSE)
 ```
 Kwestią otwartą pozostaje pytanie dlaczego te państwa notują znacznie mniej zachorowań niż Polska w przeliczeniu na milion mieszkańców. Czy jest to efekt prowadzonej polityki (Azja?), a może w danych krajach prowadzi się znacznie mniej testów? 
 
 ## Polska na tle pięciu krajów o najwyższej średniej zachorowań na milion mieszkańców w regionie Europy Wschodniej (i Środkowo-Wschodniej)
 Pod względem liczby zachorowań na milion mieszkańców, Polska znajduje się na `r pol_east_rank` miejscu z `r max_east_rank`. Innymi słowy `r max_east_rank-(max_east_rank-pol_east_rank)-1` krajów regionu ma wyższe wskaźniki zachorowań niż Polska. 
-```{r fig.height = 5, fig.width = 10, fig.align = "center", echo = FALSE}
+```{r echo = FALSE, warning=FALSE}
 plot(p5, echo = FALSE)
 ```
 
 ## Zachorowania na milion mieszkańców a PKB per capita
 Koronawirus atakuje na razie najmocniej kraje bogate. Na ogół, im kraj jest bogatszy, tym więcej w nim zachorowań na milion mieszkańców. Znaczną większość krajów bogatych, najbardziej cierpiących z powodu pandemii, stanowią kraje Europejskie. Zwracam uwagę na skalę wykresu, która tym razem jest logarytmiczna (wartości nie rosną liniowo). 
-```{r fig.height = 5, fig.width = 10, fig.align = "center", echo = FALSE}
+```{r echo = FALSE, warning=FALSE}
 plot(p6, echo = FALSE)
 ```
 Jak na względnie bogaty kraj, Polska wygląda w tym zestawieniu korzystnie pod względem średniej liczby zachorowań na milion mieszkańców. Następnym razem sprawdzę jak wygląda to samo zestawienie w samej Europie, z zaznaczeniem krajów Zachodnich i Wschodnich.
 
 ## Zachorowania na milion mieszkańców a PKB per capita w Europie
 Ten sam wykres co wyżej dla Europy, w podziale na subregiony
-```{r fig.height = 5, fig.width = 10, fig.align = "center", echo = FALSE}
+```{r echo = FALSE, warning=FALSE}
 plot(p7, echo = FALSE)
 ```
 
 ******
-[Źródło danych 1](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide)
 
+*[Źródło danych 1](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide)
 
-[Źródło danych 2](https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD)
-
-Autor Aleksander Politański
+*[Źródło danych 2](https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD)
