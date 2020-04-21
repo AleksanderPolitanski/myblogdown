@@ -1,8 +1,9 @@
 ---
 title: "Covid19 analizy"
-date: "02 kwietnia 2020"
-output:
-  html_document: default
+date: 2020-04-21
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+
 ---
 ###Analizy na podstawie danych z 01 kwietnia
 
