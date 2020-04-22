@@ -1,0 +1,57 @@
+---
+title: "Covid19 analizy"
+date: 2020-04-22
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+###Analizy na podstawie danych z 21 kwietnia
+
+
+##Polska na tle reszty świata
+Kilka tygodni po poprzedniej analizie możemy zobaczyć, że statystyka zachorowań na milion mieszkańców w Polsce utrzymuje się obecnie średnio nieco niżej niż średnia światowa. Należy pamiętać, że jest to analiza na bardzo ogólnym poziomie. 
+
+
+![](/Users/Admin/Desktop/COVID/22 kw/p1.jpg)
+
+
+##Porównanie sytuacji na kontynentach
+Zupełnie inaczej wyglądają natomiast dane na poziomie kontynentów. Europa notuje wyraźny spadek statystyk zachorowań, zgodnie z oczekiwaniami. Ameryka Północna jest obecnie światowym epicentrum Koronawirusa.
+
+
+![](/Users/Admin/Desktop/COVID/22 kw/p2.jpg)
+
+
+##Polska na tle pięciu krajów o najwyższej średniej zachorowań na milion mieszkańców
+Kraje o najwyższej średniej zachorowań notują wyraźną poprawę. Szwajcaria pod tym względem zbliża się już nawet do poziomu Polski. W naszym kraju przyrost nie był tak gwałtowny jak w porównywanych krajach ale też nie mamy jeszcze tak spektakularnego spadku poziomu zachorowań.
+
+![](/Users/Admin/Desktop/COVID/22 kw/p3.jpg)
+
+
+##Polska na tle pięciu krajów o najniższej średniej zachorowań na milion mieszkańców
+Na tle krajów o najniższym wskaźniku zachorowań Polska przedstawia się nieco gorzej ale trzeba pamiętać, że są to państwa Azji, gdzie generalnie Covid udało się opanować znacznie szybciej niż w Europie.
+
+![](/Users/Admin/Desktop/COVID/22 kw/p4.jpg)
+
+
+## Polska na tle pięciu krajów o najwyższej średniej zachorowań na milion mieszkańców w regionie Europy Wschodniej (i Środkowo-Wschodniej)
+
+
+![](/Users/Admin/Desktop/COVID/22 kw/p5.jpg)
+
+
+## Zachorowania na milion mieszkańców a PKB per capita
+Koronawirus atakuje na razie najmocniej kraje bogate. Na ogół, im kraj jest bogatszy, tym więcej w nim zachorowań na milion mieszkańców. Znaczną większość krajów bogatych, najbardziej cierpiących z powodu pandemii, stanowią kraje Europejskie. Zwracam uwagę na skalę wykresu, która tym razem jest logarytmiczna (wartości nie rosną liniowo). 
+
+![](/Users/Admin/Desktop/COVID/22 kw/p6.jpg)
+
+
+## Zachorowania na milion mieszkańców a PKB per capita w Europie
+
+![](/Users/Admin/Desktop/COVID/22 kw/p7.jpg)
+
+
+******
+[Źródło danych 1](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide)
+[Źródło danych 2](https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD)
+
+Autor Aleksander Politański

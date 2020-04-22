@@ -6,10 +6,20 @@
     <description>Recent content in R on Alek website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Covid19 analizy</title>
+      <link>/2020/04/22/covid19-analizy/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/04/22/covid19-analizy/</guid>
+      <description>Analizy na podstawie danych z 21 kwietniaPolska na tle reszty świataKilka tygodni po poprzedniej analizie możemy zobaczyć, że statystyka zachorowań na milion mieszkańców w Polsce utrzymuje się obecnie średnio nieco niżej niż średnia światowa. Należy pamiętać, że jest to analiza na bardzo ogólnym poziomie.
+Porównanie sytuacji na kontynentachZupełnie inaczej wyglądają natomiast dane na poziomie kontynentów. Europa notuje wyraźny spadek statystyk zachorowań, zgodnie z oczekiwaniami.</description>
+    </item>
     
     <item>
       <title>Analizy zachorowań na Covid19</title>
