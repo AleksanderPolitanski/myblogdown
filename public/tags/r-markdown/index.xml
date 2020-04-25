@@ -1,35 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R Markdown on Alek website</title>
+    <title>R Markdown on A Hugo website</title>
     <link>/tags/r-markdown/</link>
-    <description>Recent content in R Markdown on Alek website</description>
+    <description>Recent content in R Markdown on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
     
 	<atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Covid19 analizy</title>
-      <link>/2020/04/22/covid19-analizy/</link>
-      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/22/covid19-analizy/</guid>
-      <description>Analizy na podstawie danych z 21 kwietniaPolska na tle reszty świataKilka tygodni po poprzedniej analizie możemy zobaczyć, że statystyka zachorowań na milion mieszkańców w Polsce utrzymuje się obecnie średnio nieco niżej niż średnia światowa. Należy pamiętać, że jest to analiza na bardzo ogólnym poziomie.
-Porównanie sytuacji na kontynentachZupełnie inaczej wyglądają natomiast dane na poziomie kontynentów. Europa notuje wyraźny spadek statystyk zachorowań, zgodnie z oczekiwaniami. Ameryka Północna jest obecnie światowym epicentrum Koronawirusa.</description>
-    </item>
-    
-    <item>
-      <title>Analizy zachorowań na Covid19</title>
-      <link>/2020/04/02/analizy-zachorowa%C5%84-na-covid19/</link>
-      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/02/analizy-zachorowa%C5%84-na-covid19/</guid>
-      <description>Analizy na podstawie danych z 01 kwietniaPolska na tle reszty świataPoniższy wykres przedstawia stytystyki zachorowań na Covid-19 w przeliczeniu na milion mieszkańców, na przestrzeni kolejnych dni trwania epidemii. Pierwszy dzień epidemii jest pierwszym dniem, w którym odnotowano zachorowanie (dla Polski jest to inna data niż dla reszty świata). Średnia zachorowań dla świata jest wyliczona tylko dla krajów, w których wystąpiło dotąd przynajmniej jedno zachorowanie.
-Z powyższych danych wynika, że sytuacja w Polsce jest średnio gorsza niż na świecie.</description>
-    </item>
     
     <item>
       <title>Hello R Markdown</title>

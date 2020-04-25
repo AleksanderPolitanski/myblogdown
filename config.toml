@@ -1,7 +1,7 @@
 baseurl = "/"
 languageCode = "en-us"
-title = "Alek website"
-theme = "liquorice"
+title = "A Hugo website"
+theme = "hugo-lithium"
 googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
@@ -10,15 +10,17 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     post = "/:year/:month/:day/:slug/"
 
 [[menu.main]]
-    name = "O stronie"
+    name = "About"
     url = "/about/"
 [[menu.main]]
-    name = "LinkedIn"
-    url = "https://www.linkedin.com/in/aleksander-politański-316238145/"
-
+    name = "GitHub"
+    url = "https://github.com/rstudio/blogdown"
+[[menu.main]]
+    name = "Twitter"
+    url = "https://twitter.com/rstudio"
 
 [params]
-    description = "Ja i moje przykładowe analizy"
+    description = "A website built through Hugo and blogdown."
 
     # options for highlight.js (version, additional languages, and theme)
     highlightjsVersion = "9.12.0"
