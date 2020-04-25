@@ -6,10 +6,19 @@
     <description>Recent content in R on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2020 23:31:14 -0500</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sondaże prezydenckie 2020, czyli co się stało z opozycją?</title>
+      <link>/2020/04/25/sonda%C5%BCe-prezydenckie-2020-czyli-co-si%C4%99-sta%C5%82o-z-opozycj%C4%85/</link>
+      <pubDate>Sat, 25 Apr 2020 23:31:14 -0500</pubDate>
+      
+      <guid>/2020/04/25/sonda%C5%BCe-prezydenckie-2020-czyli-co-si%C4%99-sta%C5%82o-z-opozycj%C4%85/</guid>
+      <description>Historia sondaży prezydenckich - I turaSondaże to integralna część każdych demokratycznych wyborów a także dobry sposób na przyciągnięcie uwagi czytelników rozmaitych portali informacyjnych. Rzadko jednak można natknąć się w sieci na podsumowanie serii przeprowadzonych sondaży. Postanowiłem zapełnić tę niszę i pokazać jak na przestrzeni ostatnich miesięcy zmieniało się poparcie dla poszczególnych kandydatów na urząd prezydenta RP. Najprawdopodobniej nie udało mi się zebrać wszystkich sondaży ale jest ich na tyle dużo, że można na ich podstawie wyciągnąć pewne wnioski.</description>
+    </item>
     
     <item>
       <title>Hello R Markdown</title>
