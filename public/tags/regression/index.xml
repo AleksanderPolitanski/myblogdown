@@ -20,16 +20,5 @@
       <description>Historia sondaży prezydenckich - I turaSondaże to integralna część każdych demokratycznych wyborów a także dobry sposób na przyciągnięcie uwagi czytelników rozmaitych portali informacyjnych. Rzadko jednak można natknąć się w sieci na podsumowanie serii przeprowadzonych sondaży. Postanowiłem zapełnić tę niszę i pokazać jak na przestrzeni ostatnich miesięcy zmieniało się poparcie dla poszczególnych kandydatów na urząd prezydenta RP. Najprawdopodobniej nie udało mi się zebrać wszystkich sondaży ale jest ich na tyle dużo, że można na ich podstawie wyciągnąć pewne wnioski.</description>
     </item>
     
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/2015/07/23/hello-r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/2015/07/23/hello-r-markdown/</guid>
-      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
-    </item>
-    
   </channel>
 </rss>
