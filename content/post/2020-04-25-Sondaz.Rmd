@@ -29,4 +29,13 @@ Jeśli miałbym pokusić się o interpretację wpływu tych arbitralnie wybranyc
 
 
 
+```{r echo=FALSE, results = 'asis', warning=FALSE}
+library(openxlsx)
+library(knitr)
+options(knitr.kable.NA = '-')
+tura1<-read.xlsx(xlsxFile = "C:/Users/Admin/Desktop/Git Blogdown/myblogdown/static/tables/1tura.xlsx", na.strings = "")
+kable(tura1, caption="Wyniki sondaży I tury")
+```
+
+
 
