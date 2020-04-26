@@ -34,6 +34,7 @@ library(openxlsx)
 library(knitr)
 options(knitr.kable.NA = '-')
 tura1<-read.xlsx(xlsxFile = "C:/Users/Admin/Desktop/Git Blogdown/myblogdown/static/tables/1tura.xlsx", na.strings = "")
+tura1<-tura1[order(tura1$Data.publikacji),]
 kable(tura1, caption="Wyniki sondaży I tury")
 ```
 
