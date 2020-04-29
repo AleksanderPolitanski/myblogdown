@@ -6,10 +6,19 @@
     <description>Recent content in R Markdown on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Apr 2020 23:31:14 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2020 23:31:14 -0500</lastBuildDate>
     
 	<atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>O stronie</title>
+      <link>/about/</link>
+      <pubDate>Wed, 29 Apr 2020 23:31:14 -0500</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Na tej stronie chcę zamieszczać analizy rozmaitych zjawisk, które nas otaczają, w oparciu o dane liczbowe. Wydaje mi się, że dzisiejsza publicystyka zbyt często bazuje na przeczuciach, opiniach, wrażeniach a za mało jest w niej chociażby próby rzetelnej analizy. Jest to tym bardziej niezrozumiałe, że w dzisiejszym świecie dane są powszechnie dostępne a ich analiza, dzięki komputerom, jest bardzo szybka i względnie łatwa. Moim celem jest stawianie pytań i poszukiwanie na nie odpowiedzi w danych.</description>
+    </item>
     
     <item>
       <title>Sondaże prezydenckie 2020, czyli co się stało z opozycją?</title>
