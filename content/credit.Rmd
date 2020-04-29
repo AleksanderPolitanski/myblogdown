@@ -1,0 +1,11 @@
+---
+title: "Credit"
+author: "Aleksander Politański"
+date: 2020-04-29T23:31:14-05:00
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+Strona powstała na bazie biblioteki R [blogdown](https://github.com/rstudio/blogdown)
+
+Logo utworzono za pomocą [LogoMakr.com](https://logomakr.com)

@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Credit</title>
+      <link>/credit/</link>
+      <pubDate>Wed, 29 Apr 2020 23:31:14 -0500</pubDate>
+      
+      <guid>/credit/</guid>
+      <description>Strona powstała na bazie biblioteki R blogdown
+Logo utworzono za pomocą LogoMakr.com</description>
+    </item>
+    
+    <item>
       <title>O stronie</title>
       <link>/about/</link>
       <pubDate>Wed, 29 Apr 2020 23:31:14 -0500</pubDate>
