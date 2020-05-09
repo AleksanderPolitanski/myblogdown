@@ -29,5 +29,15 @@
       <description>Historia sondaży prezydenckich od października 2019 do kwietnia 2020Sondaże to integralna część każdych demokratycznych wyborów a także dobry sposób na przyciągnięcie uwagi czytelników rozmaitych portali informacyjnych. Rzadko jednak można natknąć się w sieci na podsumowanie serii przeprowadzonych sondaży. Postanowiłem zapełnić tę niszę i pokazać jak na przestrzeni ostatnich miesięcy zmieniało się poparcie dla poszczególnych kandydatów na urząd prezydenta RP. Najprawdopodobniej nie udało mi się zebrać wszystkich sondaży ale jest ich na tyle dużo, że można na ich podstawie wyciągnąć pewne wnioski.</description>
     </item>
     
+    <item>
+      <title>A Plain Markdown Post</title>
+      <link>/2016/12/30/a-plain-markdown-post/</link>
+      <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
+      
+      <guid>/2016/12/30/a-plain-markdown-post/</guid>
+      <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
+ You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
+    </item>
+    
   </channel>
 </rss>
