@@ -3,12 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/</loc>
-    <lastmod>2020-04-29T23:31:14-05:00</lastmod>
+    <loc>/categories/</loc>
+    <lastmod>2020-05-09T23:31:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>/tags/plot/</loc>
+    <lastmod>2020-05-09T23:31:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-05-09T23:31:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2020-05-09T23:31:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r-markdown/</loc>
+    <lastmod>2020-05-09T23:31:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/regression/</loc>
+    <lastmod>2020-05-09T23:31:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-05-09T23:31:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/05/09/zalegizowa%C4%87-marihunaen-a-komu-to-potrzebne/</loc>
+    <lastmod>2020-05-09T23:31:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
     <lastmod>2020-04-29T23:31:14-05:00</lastmod>
   </url>
   
@@ -20,36 +55,6 @@
   <url>
     <loc>/about/</loc>
     <lastmod>2020-04-29T23:31:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/plot/</loc>
-    <lastmod>2020-04-29T23:31:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2020-04-29T23:31:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2020-04-29T23:31:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/regression/</loc>
-    <lastmod>2020-04-29T23:31:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-04-29T23:31:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-04-25T23:31:14-05:00</lastmod>
   </url>
   
   <url>
