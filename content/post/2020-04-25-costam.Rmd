@@ -1,0 +1,14 @@
+---
+title: "TEST"
+author: "Aleksander Politański"
+date: 2020-05-25T23:31:14-05:00
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# TEST
+
