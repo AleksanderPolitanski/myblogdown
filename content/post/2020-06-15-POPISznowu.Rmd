@@ -19,29 +19,33 @@ knitr::opts_chunk$set(collapse = TRUE)
 Wydarzenia na polskiej scenie politycznej nabrały niezwykłego tempa. Do tego stopnia, że [wpis](https://www.politanski-blog.net/2020/05/05/zalegizować-marihunaen-a-komu-to-potrzebne/), który zamieszczałem na blogu pod koniec kwietnia  można już traktować jak zamierzchłą historię. Urzędujący prezydent wkraczał w początek maja, jako zdecydowany lider sondaży, z szansą nawet na zwycięstwo w pierwszej turze. Kilka tygodni później mamy już nowego kandydata Platformy, zatopionego Kosiniaka-Kamysza i duże problemy Dudy. Według nowych sondaży, w drugiej turze wyborów czeka nas ponowne odgrzanie tego, co znamy już od bardzo dawna: pojedynek PiSu z PO. Przypomnijmy jak było w 2010 i 2015. 
 *W całym tekście, jako zmiennej przewidywanej używam odsetka głosów dla PiS. Odsetek głosów dla PO to oczywiście 100% minus procent dla PiS.* 
 
-
+<p align="center">
 <img src="/img/wyniki2010.jpg" width="50%" height="50%">
+</p>
 
-
+<p align="center">
 <img src="/img/wyniki2015.jpg" width="50%" height="50%">
+</p>
 
 
 Inni kandydaci, inne wybory, a mapki jakby podobne… Wielokrotnie już zwracano uwagę na to, że kolory, które widzimy na tych mapach pokazują prawie idealnie granice zaborów, co osobiście uważam za fascynujące. Wyjątki stanowią głównie duże miasta. Oprócz tego, ostoją Platformy 
 w Polsce wschodniej jest powiat hajnowski (gdzie znajduje się duża mniejszość prawosławna, może to jest klucz do zrozumienia fenomenu tego powiatu), a podobną redutę PiSu na zachodzie stanowią głównie powiaty lubiński i polkowicki. Coś mi to zresztą [przypomina](https://commons.wikimedia.org/wiki/File:Yin_yang.svg)… 
 Żeby odnieść się trochę do statystyki, korelacja wyników tych dwóch wyborów na poziomie powiatów wynosi niebotyczne 0,978 (im bliżej 1 tym silniej jedna zmienna koreluje z drugą). Znając wyniki z 2010 roku mogliśmy przewidzieć wyniki w 2015 ze skutecznością 95,6%. Niezależnie od tego, że z ramienia PiSu startował już inny kandydat. Pozwolę sobie zatem na stwierdzenie, że w drugiej turze wyborów prezydenckich, przynajmniej w ostatnich latach, Polacy głosują raczej na stronnictwo niż na kandydata.
 
-
-<img src="/img/kor 2010 2015.jpg" width="30%" height="30%">
-
+<p align="center">
+<img src="/img/kor 2010 2015.jpg" width="60%" height="60%">
+</p>
 
 Coś jednak musiało się zmienić na przestrzeni tych kilku lat. Chociażby dlatego, że pierwsze wybory wygrało PO a drugie PiS. Zatem co i gdzie się zmieniło?
 
 
-
+<p align="center">
 <img src="/img/roznica 2010 2015.jpg" width="50%" height="50%">
+</p>
 
-<img src="/img/zmiana kat.jpg" width="30%" height="30%">
-
+<p align="center">
+<img src="/img/zmiana kat.jpg" width="60%" height="60%">
+</p>
 
 
 Jak widać zmiany nie były już tak wyraźnie powiązane z geografią. Można powiedzieć, że cała Polska generalnie zagłosowała chętniej na kandydata PiSu w 2015 roku niż w 2010. Jeśli widać jakąś tendencję to lokuje się ona bardziej w obszarach: Polska centralna (podobne lub niższe poparcie dla PiS w 2015) i Polska peryferyjna (większe poparcie dla PiS w 2015 niż w 2010). Mówiąc inaczej, zachód nadal chętniej głosował na kandydata PO a wschód na kandydata PiS ale wszędzie proporcje przechyliły się delikatnie na korzyść PiSu. Zmiana była jednak na tyle wyraźna, że pozwoliła Andrzejowi Dudzie pokonać Bronisława Komorowskiego. 
@@ -52,9 +56,9 @@ Jak widać zmiany nie były już tak wyraźnie powiązane z geografią. Można p
 
 Zobaczmy w ilu powiatach nastąpiła zmiana zwycięzcy. 
 
-
-<img src="/img/zmiana win.jpg" width="30%" height="30%">
-
+<p align="center">
+<img src="/img/zmiana win.jpg" width="60%" height="60%">
+</p>
 
 Jak się okazuje, PiS „nie oddało” ani jednego z tych powiatów, w których w 2010 roku wygrał Jarosław Kaczyński. 37 powiatów natomiast w 2015 roku zagłosowało w większości na Andrzeja Dudę, mimo że w 2010 wygrywał tam kandydat Platformy.  
 Gdyby udało się ustalić jakie czynniki przyczyniły się do tej globalnej zmiany, może dałoby się przewidzieć na którą stronę przechyli się szala zwycięstwa w 2020 roku. Najpierw jednak, spróbujmy się dowiedzieć, od czego zależało poparcie dla przedstawicieli poszczególnych partii w wyborach 2010 i 2015.
