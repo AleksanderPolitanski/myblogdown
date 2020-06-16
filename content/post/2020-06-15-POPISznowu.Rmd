@@ -20,10 +20,10 @@ Wydarzenia na polskiej scenie politycznej nabrały niezwykłego tempa. Do tego s
 *W całym tekście, jako zmiennej przewidywanej używam odsetka głosów dla PiS. Odsetek głosów dla PO to oczywiście 100% minus procent dla PiS.* 
 
 
-<img src="/img/wyniki2010.jpg" width="100%" height="100%">
+<img src="/img/wyniki2010.jpg" width="50%" height="50%">
 
 
-<img src="/img/wyniki2015.jpg" width="100%" height="100%">
+<img src="/img/wyniki2015.jpg" width="50%" height="50%">
 
 
 Inni kandydaci, inne wybory, a mapki jakby podobne… Wielokrotnie już zwracano uwagę na to, że kolory, które widzimy na tych mapach pokazują prawie idealnie granice zaborów, co osobiście uważam za fascynujące. Wyjątki stanowią głównie duże miasta. Oprócz tego, ostoją Platformy 
@@ -31,16 +31,16 @@ w Polsce wschodniej jest powiat hajnowski (gdzie znajduje się duża mniejszoś�
 Żeby odnieść się trochę do statystyki, korelacja wyników tych dwóch wyborów na poziomie powiatów wynosi niebotyczne 0,978 (im bliżej 1 tym silniej jedna zmienna koreluje z drugą). Znając wyniki z 2010 roku mogliśmy przewidzieć wyniki w 2015 ze skutecznością 95,6%. Niezależnie od tego, że z ramienia PiSu startował już inny kandydat. Pozwolę sobie zatem na stwierdzenie, że w drugiej turze wyborów prezydenckich, przynajmniej w ostatnich latach, Polacy głosują raczej na stronnictwo niż na kandydata.
 
 
-<img src="/img/kor 2010 2015.jpg" width="100%" height="100%">
+<img src="/img/kor 2010 2015.jpg" width="30%" height="30%">
 
 
 Coś jednak musiało się zmienić na przestrzeni tych kilku lat. Chociażby dlatego, że pierwsze wybory wygrało PO a drugie PiS. Zatem co i gdzie się zmieniło?
 
 
 
-<img src="/img/roznica 2010 2015.jpg" width="100%" height="100%">
+<img src="/img/roznica 2010 2015.jpg" width="50%" height="50%">
 
-<img src="/img/zmiana kat.jpg" width="100%" height="100%">
+<img src="/img/zmiana kat.jpg" width="30%" height="30%">
 
 
 
@@ -53,7 +53,7 @@ Jak widać zmiany nie były już tak wyraźnie powiązane z geografią. Można p
 Zobaczmy w ilu powiatach nastąpiła zmiana zwycięzcy. 
 
 
-<img src="/img/zmiana win.jpg" width="100%" height="100%">
+<img src="/img/zmiana win.jpg" width="30%" height="30%">
 
 
 Jak się okazuje, PiS „nie oddało” ani jednego z tych powiatów, w których w 2010 roku wygrał Jarosław Kaczyński. 37 powiatów natomiast w 2015 roku zagłosowało w większości na Andrzeja Dudę, mimo że w 2010 wygrywał tam kandydat Platformy.  
