@@ -1,0 +1,105 @@
+---
+title: "Mapki wyborcze 2020"
+author: "Aleksander Politański"
+date: 2020-07-16T23:31:14-05:00
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+Wybory prezydenckie za nami. W mediach dominują głosy, mówiące o dramatycznym podziale Polski, o „pęknięciu na pół” itp. Najpopularniejszą infografiką jest dwukolorowa mapa, na której cały zachód jest pomarańczowy a cały wschód niebieski. Chociażby taką mapę przedstawia [Onet](https://wiadomosci.onet.pl/kraj/wyniki-wyborow-prezydenckich-2020-wyniki-w-wojewodztwach/h23qee3):
+
+<img src="/img/mapkiPoWyborach/onet.png" width="50%" height="50%">
+
+Psychologicznie, taka mapa mówi nam: są dwie Polski. Jedna głosuje gremialnie na jednego kandydata, druga stoi murem za jego przeciwnikiem. Jak żyć w tak podzielonym kraju? Oprócz tego pojawia się dysonans: niebieska Polska jest większa! Więc dlaczego nie wygrał Trzaskowski?
+Mapki nie zawsze będą idealnym sposobem przedstawienia danych. Tak naprawdę, sugerują one wyraźny, ostry podział. Znakomicie obśmiał to jeden użytkownik [twittera](https://twitter.com/aosiejuk/status/1282627368977338376/photo/1):
+
+<img src="/img/mapkiPoWyborach/polska.png" width="50%" height="50%">
+
+
+Sensownym wykorzystaniem kolorowej mapki wydaje się na przykład zaznaczenie, w których krajach na świecie panuje ustrój demokratyczny. Albo w których krajach legalna jest jakaś substancja. Mapki będą więc przydatne raczej przy danych kategorialnych a nie ilościowych. 
+
+Można jednak spróbować trochę to ograć i mimo analizowania danych ilościowych wygenerować mapkę trochę uczciwszą niż te, które najczęściej pokazuje się w telewizji. Można chociażby użyć odcieni kolorów, żeby uwzględnić stopień wyrazistości różnic. W taki sposób dane przedstawia na przykład [PKW](https://wybory.gov.pl/prezydent20200628/pl/wyniki/pl) (której stronę, swoją drogą, bardzo polecam).
+
+<img src="/img/mapkiPoWyborach/pkw.png" width="50%" height="50%">
+
+Można trochę przyczepić się do doboru odcieni w mapce PKW, bo tu z kolei mamy przekaz podprogowy, że tylko w dwóch województwach wygrał Trzaskowski (kolor biały) a reszta to już mocniejsze albo słabsze odcienie czerwieni – zwycięstwo Dudy. A taka interpretacja również jest nieprawdziwa. Mimo wszystko usprawiedliwiałbym PKW, bo na tej samej stronie publikuje ona szczegółowo wyniki dla całego kraju, aż do poziomu malutkich obwodowych komisji wyborczych, co uważam za wspaniałe. 
+
+Innym sposobem na trochę lepsze zaprezentowanie danych z użyciem mapki, może być zejście na niższy poziom [jednostek administracyjnych](https://twitter.com/wbdata/status/1282609800958939136/photo/1). 
+
+<img src="/img/mapkiPoWyborach/gminy.png" width="50%" height="50%">
+
+Zwróćmy uwagę jak drastycznie powyższa mapka różni się od tej w podziale na województwa, którą prezentuje Onet. Tutaj przekaz psychologiczny brzmi: „tylko obrzeża Polski zachodniej i duże miasta wybierały Trzaskowskiego”. 
+
+Zupełną nowością dla mnie są mapki powstające przy użyciu pakietu [R Cartogram](https://www.r-graph-gallery.com/cartogram.html). Pakiet ten, modyfikuje granice regionów, opierając się na liczbie ludności. Przyjrzyjmy się takiej [mapce](https://www.facebook.com/zantonim/posts/1182478275442724): 
+
+<img src="/img/mapkiPoWyborach/zantonim.png" width="50%" height="50%">
+
+Spośród wszystkich mapek, ta robi największe wrażenie i jest na pewno najbliższa prawdy. Miasta to nie są małe kropeczki na wielkim oceanie poparcia małych gmin. Pamiętajmy, że liczymy liczbę głosów a nie areał zajmowany przez daną jednostkę administracyjną. 
+
+Sam też wpadłem na pomysł przedstawienia wyników wyborów na mapce. Zależało mi przede wszystkim na tym, żeby przełamać „dwukolorowe” myślenie. Kiedy widzimy chociażby dużą, pomarańczową Warszawę, zapominamy że przecież nie wszyscy Warszawiacy wybrali Trzaskowskiego. Prawda jest o wiele bardziej złożona. 
+
+<img src="/img/mapkiPoWyborach/pol FINAL.png" width="50%" height="50%">
+
+Moja mapka bardzo komplikuje sprawę – i o to mi chodziło. W każdym województwie stosunek ilości kwadracików w danym kolorze do pozostałych, odzwierciedla odsetek głosów oddanych na danego kandydata. Uwzględniłem też brak głosów („NIKT”), czyli głosy nieważne lub brak udziału w wyborach. Poszczególne „mozaiki” pikseli przygotowałem w R a następnie powklejałem je na mapkę używając Gimpa. 
+
+Kod do przygotowania „mozaik” wyglądał mniej więcej tak:
+
+```{r, eval=F, echo=T}
+library(ggplot2)
+library(openxlsx)
+library(glue)
+
+path<-"C:/Admin/Desktop/Mapka po wyborach/"
+
+dane<-read.xlsx(xlsxFile = glue({path},"Liczby.xlsx"))
+
+woj<-unique(dane$wojewodztwo)
+wojDf<-list()
+i<-1
+
+for (w in woj){
+  probka<-sample(x = c("Duda","Trzask","Inne"), size = 360000, replace = TRUE, prob = c(dane[dane$wojewodztwo==w,"dudaProc"],dane[dane$wojewodztwo==w,"trzaskProc"],dane[dane$wojewodztwo==w,"inneProc"]))
+  probkaDf<-data.frame(probka, c(1:600), rep(1:600, each = 600))
+  names(probkaDf)<-c("who","row","col")
+  wojDf[[i]]<-probkaDf
+  i<-i+1
+}
+
+myCols = c("Duda"="blue", "Trzask"="red", "Inne"="white")
+
+ggsWoj<-list()
+
+for(i in seq_along(dane$wojewodztwo)){
+  
+  ggsWoj[[i]]<-ggplot(wojDf[[i]], aes(row, col)) +
+    geom_raster(aes(fill = who)) +
+    scale_fill_manual(values = myCols) +
+    theme(panel.background = element_rect(fill = "white"), 
+      legend.position = "none", 
+      axis.text = element_blank(), 
+      axis.ticks = element_blank(),
+      axis.title = element_blank()
+      )
+}
+
+
+for(i in 1:16){
+ ggsave(filename = glue({path},{woj[i]},".jpg"), plot = ggsWoj[[i]], width = 20, height = 20, units = "cm") 
+}
+
+```
+
+Tak wyglądały przygotowane pliki jpg w folderze. Sam rzut oka na nie pokazuje, że mamy do czynienia z różnicami tylko w odcieniach. 
+
+<img src="/img/mapkiPoWyborach/mozaiki.png" width="50%" height="50%">
+
+
+Można oczywiście jeszcze pobawić się trochę z granularnością przedstawienia pikseli – mniejsze bardziej zlewałyby się w kolory. Oprócz tego, moja mapa uwzględnia tylko poziom województw. Gdyby dodać do tego miasta, wokół nich pojawiałyby się zagęszczenia czerwonego koloru. Niemniej, moim celem, jak wspominałem, było pokazać wyraźnie złożoność sytuacji i myślę, że ta mapa dość dobrze realizuje ten cel. 
+
+Słowem podsumowania – wizualizacja danych jest znakomitym narzędziem upraszczania złożonych zależności i szybkiego przekazywania informacji. Ale można je wykorzystywać także do perswazji niezbyt uczciwej. Owszem, Polacy się różnią ale nie w aż tak prostym, zero-jedynkowym wymiarze jak chce nam się to czasami przekazać. Powiem więcej: wielu z nas głosując na danego kandydata i stając się statystycznie niebieskim lub czerwonym kwadracikiem wcale nie było w stu procentach przekonanych do swojego kandydata. Każdy kwadracik mógłby mieć jeszcze swój odcień w zależności od tego jak bardzo popiera danego kandydata. Chodzi mi po prostu o to, że Polska nie jest dwukolorowa. A świat nie jest czarno-biały. 
+
+

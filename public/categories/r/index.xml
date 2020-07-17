@@ -6,10 +6,20 @@
     <description>Recent content in R on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jun 2020 23:31:14 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2020 23:31:14 -0500</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mapki wyborcze 2020</title>
+      <link>/2020/07/16/mapki-wyborcze-2020/</link>
+      <pubDate>Thu, 16 Jul 2020 23:31:14 -0500</pubDate>
+      
+      <guid>/2020/07/16/mapki-wyborcze-2020/</guid>
+      <description>Wybory prezydenckie za nami. W mediach dominują głosy, mówiące o dramatycznym podziale Polski, o „pęknięciu na pół” itp. Najpopularniejszą infografiką jest dwukolorowa mapa, na której cały zachód jest pomarańczowy a cały wschód niebieski. Chociażby taką mapę przedstawia Onet:
+Psychologicznie, taka mapa mówi nam: są dwie Polski. Jedna głosuje gremialnie na jednego kandydata, druga stoi murem za jego przeciwnikiem. Jak żyć w tak podzielonym kraju? Oprócz tego pojawia się dysonans: niebieska Polska jest większa!</description>
+    </item>
     
     <item>
       <title>PO kontra PiS...znowu</title>
