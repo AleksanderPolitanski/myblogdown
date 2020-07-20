@@ -1,0 +1,39 @@
+---
+title: "Mapki wyborcze 2020 cz.2"
+author: "Aleksander Politański"
+date: 2020-07-19T23:31:14-05:00
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+Po ostatnim [wpisie o mapkach powyborczych](https://www.politanski-blog.net/2020/07/16/mapki-wyborcze-2020/) zastanawiałem się jeszcze trochę nad tym tematem i postanowiłem coś dodać. Po pierwsze – mam hipotezę dotyczącą źródła polskiego fetyszu mapek powyborczych. Otóż wydaje mi się, że wynika on z wzorowania się na mediach amerykańskich. Na przykład, [na tej stronie](https://www.270towin.com/historical-presidential-elections/) znajdziemy mnóstwo mapek poparcia w wyborach prezydenckich w USA. Poniżej mapka z tej strony z 2016 roku.
+
+<img src="/img/mapkiPoWyborach2/2016_large.png" width="100%" height="100%">
+
+W Stanach Zjednoczonych takie mapki mają bardzo duży sens, bo jak wiadomo, system wyborczy w tym kraju jest zupełnie inny niż w Polsce. Liczą się tam tak zwane głosy elektorskie – każdy stan ma swoją pulę tych głosów do zgarnięcia. Texas, na przykład, ma 36 głosów elektorskich. Wystarczy, że kandydat wygra w tym stanie jednym głosem a zgarnie **wszystkie** 36 głosów (w sumie jest 538 do zdobycia w całym kraju). Technicznie jest w Stanach możliwe wygranie wyborów prezydenckich, mimo uzyskania mniejszej liczby głosów od konkurenta. Wystarczy na przykład wygrać w kilku kluczowych stanach o włos, mimo że przegra się sromotnie w wielu innych. Taka właśnie sytuacja miała miejsce w 2016 roku, kiedy na Hillary Clinton głosowało ponad 65 milionów osób, a na Trumpa niecałe 63 miliony. Ale przełożyło się to na 227 głosów elektorskich Clinton i 304 Trumpa. Niebiesko-czerwona mapka wyborcza w USA ma sens. 
+
+Wróćmy na nasze podwórko. Co by było, gdyby w Polsce był podobny system wyborczy jak w USA? Powiedzmy, że przyznalibyśmy poszczególnym województwom głosy elektorskie w liczbie proporcjonalnej do ich liczby ludności tak, żeby suma wynosiła 100. Zobaczmy, jak by to wyglądało.
+
+<img src="/img/mapkiPoWyborach2/elektor FINAL.png" width="50%" height="50%">
+
+
+Wynik może zaskakiwać – w systemie przypominającym ten amerykański, Rafał Trzaskowski wygrałby z Andrzejem Dudą w stosunku 67 do 33! Wynika to z tego, że Duda notował znaczną przewagę w mniej zaludnionych województwach. Trzaskowski natomiast wygrywał w wielu województwach, ale niewielką przewagą. W systemie „zwycięzca bierze wszystkie głosy z województwa”, kandydat Platformy wygrałby wyraźnie. Oczywiście to jest science fiction, bo gdyby system w Polsce był podobny do tego w Stanach, to zupełnie inaczej wyglądałaby kampania wyborcza. Skupiałaby się zapewne na województwach ‘obrotowych’ – takich, w których historycznie raz wygrywało PiS, a raz PO. Może też zmuszałoby kandydatów obu partii do łagodzenia niektórych przekazów?
+
+
+Postanowiłem sprawdzić, jak duże przewagi zyskiwali kandydaci w polskich wyborach prezydenckich 2020 w poszczególnych województwach. 
+
+<img src="/img/mapkiPoWyborach2/przewagi.png" width="100%" height="100%">
+
+Trzy najbardziej okazałe zwycięstwa na poziomie województw należą do Andrzeja Dudy – na podkarpaciu, małopolsce i na lubelszczyźnie. Te trzy województwa dały mu aż 834.116 głosów przewagi. Żeby zrównoważyć tę różnicę, trzeba by było dodać do siebie przewagi, które Trzaskowski uzyskał łącznie w województwach pomorskim, wielkopolskim, dolnośląskim, mazowieckim i lubuskim. Pięć województw z najmniejszą różnicą między kandydatami, województw prawie remisowych, to lubuskie, kujawsko-pomorskie, śląskie, warmińsko-mazurskie i opolskie – wszystkie wygrane przez Rafała Trzaskowskiego. W sumie więc, zwycięstwa Andrzeja Dudy na poziomie województw były znacznie okazalsze niż oponenta. W polskim systemie wyborczym taki podział głosów daje zwycięstwo. 
+
+Co z tego wszystkiego wynika? Po pierwsze to, że mapki nie są złym sposobem prezentacji danych, tylko każdą metodę trzeba odpowiednio dobierać do tego, co chcemy przeanalizować. 
+W amerykańskim systemie wyborczym mapki przekazują kluczowe informacje w prosty sposób. 
+W polskich warunkach mogą czasem zatrzeć pewne fakty (przy czym, na przykład, rozkład głosów 
+w zależności od historycznych granic zaborów jest niesamowity i tutaj mapki sprawdzają się znakomicie). Po drugie, nie warto kopiować wszystkiego co sprawdza się za oceanem :D 
+Po trzecie, uświadomiło mi to, jak bardzo ważny jest system wyborczy. Zobaczmy, że ordynacja wpływa nie tylko na to, kto może wygrać a kto przegrać. Może wpływać też na kształt kampanii wyborczej, a przez to na podziały i nastroje społeczne. Niedawno natknąłem się na analizę systemu francuskiego, który z kolei w bardzo skuteczny sposób blokuje wejście do Stanów Generalnych reprezentatów partii o poglądach skrajnych, niekoncyliacyjnych. Wybory do ichniejszego parlamentu składają się z dwóch tur. W tej drugiej partie mogą wchodzić w koalicje. W ten sposób od lat blokowany jest Front Narodowy Marine Le Pen, który uzyskuje niemal zerowy wpływ na rządzenie, mimo tego, że jest popierany przez nawet 20-30% obywateli. W Polsce, poza Pawłem Kukizem i jego słynną promocją JOWów, praktycznie nie mówi się o ewentualnej zmianie systemu wyborczego. A może należy zacząć o tym myśleć? Skoro obecny system nie wymusza na rządzących koncyliacyjności, szukania kompromisów, łagodzenia sporów, może nie jest to system optymalny. Może polski kryzys nie jest kryzysem demokracji jako takiej, ale jedynie pewnego jej wariantu, który nad Wisłą trochę przestał się sprawdzać. 
+
+
