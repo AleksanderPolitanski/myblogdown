@@ -19,7 +19,7 @@ library(dplyr)
 library(openxlsx)
 
 
-zarobkiPol<-read.xlsx(xlsxFile = "C:/Users/Admin/Desktop/Git Blogdown/myblogdown/static/tables/zarobkiPol.xlsx")
+zarobkiPol<-read.xlsx(xlsxFile = "../../static/tables/zarobkiPol.xlsx")
 
 
 names(zarobkiPol)<-c("State",
