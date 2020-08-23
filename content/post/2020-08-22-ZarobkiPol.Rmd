@@ -1,0 +1,134 @@
+---
+title: "Podwyżki dla polityków a sprawa polska"
+author: "Aleksander Politański"
+date: '2020-08-22T23:31:14-05:00'
+tags:
+- R Markdown
+- plot
+- regression
+categories: R
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+
+library(rvest)
+library(plotly)
+library(dplyr)
+library(openxlsx)
+
+
+zarobkiPol<-read.xlsx(xlsxFile = "C:/Users/Admin/Desktop/Git Blogdown/myblogdown/static/tables/zarobkiPol.xlsx")
+
+
+names(zarobkiPol)<-c("State",
+                     "State Head", 
+                     "Gov Head", 
+                     "State Head Salary By GDP",
+                     "Gov Head Salary By GDP",
+                     "State Head Salary By GDP per cap",
+                     "Gov Head Salary By GDP per cap",
+                     "Continent"
+                     )
+
+
+
+#######################################################################################
+
+pBox<-plot_ly(zarobkiPol, 
+              y = ~`State Head Salary By GDP per cap`, 
+              color = ~Continent
+              ) %>%
+  layout(yaxis = list(type = "log", 
+                      title = "Ilukrotnie wyższa jest pensja urzędnika od PKB per capita",
+                      showgrid=T,  
+                      ticks="outside", 
+                      autorange=TRUE, 
+                      showlegend = FALSE,
+                      tickvals=c(0.001,0.01,0.1,1,10,100,1000,10000)),
+         xaxis = list(title = ""),
+         title = "Zarobki głów państwa w relacji do PKB per capita"
+         ) %>%
+  add_boxplot(hoverinfo='skip', showlegend = FALSE) %>% 
+  add_markers(data = zarobkiPol, 
+              y = ~`State Head Salary By GDP per cap`, 
+              x = ~Continent,  
+              text = zarobkiPol[,'State'],
+              showlegend = FALSE)
+
+
+
+
+zarobkiPol3<-subset(zarobkiPol, State != 'Kazakhstan' & State != 'Nauru')
+
+
+pBox2<-plot_ly(zarobkiPol3, 
+              y = ~`Gov Head Salary By GDP per cap`, 
+              color = ~Continent
+              ) %>%
+  layout(yaxis = list(type = "log", 
+                      title = "Ilukrotnie wyższa jest pensja urzędnika od PKB per capita",
+                      showgrid=T,  
+                      ticks="outside", 
+                      autorange=TRUE, 
+                      showlegend = FALSE,
+                      tickvals=c(0.001,0.01,0.1,1,10,100,1000,10000)),
+         xaxis = list(title = ""),
+         title = "Zarobki szefów rządu w relacji do PKB per capita"
+         ) %>%
+  add_boxplot(hoverinfo='skip', showlegend = FALSE) %>% 
+  add_markers(data = zarobkiPol3, 
+              y = ~`Gov Head Salary By GDP per cap`, 
+              x = ~Continent,  
+              text = zarobkiPol3[,'State'],
+              showlegend = FALSE)
+
+```
+
+Tym razem będzie krótko, wakacyjnie. Ostatnio głośno było o projekcie ustawy podnoszącej wynagrodzenia politykom. Trochę mnie zaskoczyło, że taki pomysł pojawił się w tak niefortunnym momencie. Wizerunkowo to nie mogło się udać. Nie jest to jednak ani mój problem, ani nie na tym chciałem się skupić.  Zadałem sobie pytanie – czy politycy w Polsce zarabiają dużo czy mało? 
+
+Znalazłem taką [stronę na Wikipedii](https://en.wikipedia.org/wiki/List_of_salaries_of_heads_of_state_and_government#cite_note-igcompaycheck-18). Ktoś bardzo pracowicie zebrał tam informacje na temat zarobków prezydentów i szefów rządów w różnych krajach (w przeliczeniu na dolary). Co więcej, zarobki te odniesione są do PKB per capita w danym kraju. Myślę, że takie relatywne ujęcie zarobków jest dobrym pomysłem. Pokazuje, ile zarabiają najwyżsi rangą urzędnicy państwowi w relacji do tego, jak bogaci są obywatele danego kraju. Należy się spodziewać, że szef rządu Luksemburga będzie musiał zarabiać o wiele więcej w kwotach bezwzględnych, niż na przykład szef rządu Kongo. Żeby porównać sytuację w tych dwóch krajach, musimy dokonać jakiejś standaryzacji i tego właśnie dokonał za nas autor arykułu na Wikipedii. 
+
+## Ograniczenia
+
+Wzorem artykułów naukowych napiszę od razu, jakie problemy metodologiczne wiążą się z tą analizą. Zdaję sobie sprawę z tego, że źródło danych nie jest doskonałe. Autorzy strony na Wikipedii zbierali przez dłuższy czas doniesienia prasowe i oficjalne dokumenty na temat aktualnych zarobków polityków. Sama Wikipedia ostrzega przed możliwym zdezaktualizowaniem się podanych danych. 
+
+Inna kwestia metodologiczna jest taka, że PKB per capita to trochę abstrakcyjna miara. Może lepiej byłoby na przykład skorzystać z mediany zarobków w danym kraju, ale takiego zestawienia nie miałem pod ręką i postanowiłem skorzystać z gotowca. Uważam, że warto zaprezentować nawet te niedoskonałe dane, żeby choć przybliżyć temat. Może coś przeoczyłem, ale nie widziałem, żeby jakieś media zadały sobie trud wykonania chociażby takiej analizy.
+
+## Zarobki polityków
+
+Najpierw przyjrzyjmy się najbardziej ogólnemu poziomowi analizy. Wikipedia podaje w jednej kolumnie zarobki głów państwa, wśród których znajdują się głównie prezydenci, ale także królowie, emirowie, sułtani itp. W tym zestawieniu polski prezydent zajmuje miejsce 120 ze 154 ujętych w rankingu (nie licząc krajów, dla których danych nie zebrano). Mniej więcej 77% państw płaci swojemu prezydentowi więcej niż Polska, w relacji do PKB per capita.  
+
+W zakresie zarobków szefów rządów (w większości państw jest to premier, w niektórych przypadkach prezydent), Polska zajmuje 89 miejsce ze 125, dla których udało się uzyskać dane. Około 70% państw wynagradza swojego szefa rządu relatywnie wyżej niż Polska. 
+
+A co by się stało, gdyby doszły do skutku planowane podwyżki płac? Z moich wyliczeń wynika, że w takiej sytuacji Polska przesunęłaby się w rankingu nieznacznie:
+
+<p align="center">
+<img src="/img/zarobkiPol/rankingi.png" width="100%" height="100%">
+</p>
+
+*Według moich źródeł, PKB per capita w Polsce w 2019 wyniosło [15595 USD](https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=PL-GR-PT-DE-EU)*
+
+Nie jest to precyzyjne wyliczenie, bo porównuję tu zarobki głowy państwa i szefa rządu Polski do PKB z 2019, a na 2020 rok przewidywany jest spadek PKB Polski o mniej więcej 4,6%, mogę trochę niedoszacowywać potencjalnej zmiany w rankingu. Ale umówmy się, że globalna sytuacja na skutek COVIDu jest na tyle dynamiczna, że trudno tu o dobre oszacowanie. Pozostanę więc przy porównaniu do PKB z 2019.
+
+Możemy dodatkowo zobaczyć jak przedstawia się sytuacja w podziale na poszczególne kontynenty. 
+
+```{r, warning=FALSE, echo=FALSE}
+pBox
+```
+
+Najwyższe zarobki głów państwa w relacji do PKB na osobę pojawiają się w Afryce. Uwaga: skala na osi y jest logarytmiczna, czyli wykres jest bardzo „ściśnięty” w pionie, żeby dało się zmieścić na nim wszystkie wartości. Przy normalnej, liniowej skali, Afryka odfrunęłaby znacznie wyżej. Najwyższe zarobki notują Eswatini (inaczej Suazi) oraz Wielka Brytania – na czele obu tych krajów stoi monarcha. W pierwszej ósemce „najdroższych” głów państwa znajduje się zresztą siedmiu monarchów. Oprócz wymienionych są to królowie, królowe czy emirowie: Kataru, Tonga, Norwegii, Belgii i Szwecji. 
+
+Polski prezydent zarabia mniej więcej tyle, ile średnio zarabiają głowy państw w Europie (przy czym mówiąc „średnio” mam na myśli medianę tych zarobków – na wykresie jest to pozioma linia w każdym z kolorowych „pudełek”). Sama Europa natomiast, jest wyraźnie najskromniejsza w opłacaniu swoich panujących, spośród wszystkich kontynentów. 
+
+```{r, warning=FALSE, echo=FALSE}
+pBox2
+```
+
+Jeśli chodzi o opłacanie szefów rządów, Afryka znów zdecydowanie wysuwa się na prowadzenie, ale tym razem maksymalny pułap to około 260-krotność PKB per capita w Sudanie Południowym, podczas gdy dla głów państw pułap ten potrafił osiągać zawrotne 400 czy 500-krotności, a nawet przekraczać tysiąckrotność, jak w Wielkiej Brytanii i Eswatini. Ponownie, zarobki premiera Polski plasują się w średniej Europejskiej. Trochę nie chce mi się wierzyć w dane na temat zarobków prezydenta i premiera Republiki Czeskiej – w obu przypadkach zarobki tych urzędników miałyby być niższe niż średnie PKB per capita, co byłoby tyleż dziwne, co godne opisania w osobnym artykule. Na razie jednak tylko zaznaczam to, jako ciekawostkę do ewentualnego sprawdzenia.
+
+
+## Wnioski
+
+Mój wpis nie jest długi, a analiza nie była szczególnie głęboka. Prawdę mówiąc, głównie szukałem pretekstu, żeby sporządzić jakiś interaktywny wykres z użyciem biblioteki r plotly. Mimochodem sprawdziłem chyba jednak coś istotnego. Można śmiało powiedzieć, że (przynajmniej na podstawie danych, do których dotarłem) standardy opłacania polityków w Polsce nie są przesadnie „bizantyjskie” i wpisują się w ogólny trend Europejski. Na tle światowym, nasi czołowi politycy są opłacani wręcz skromnie, w relacji do tego jak bogaci są Polacy. A ponieważ zarobki w naszym kraju rosną, należy się spodziewać także podwyżek dla polityków. Może nie w takim momencie, jak w sierpniu 2020 roku i może nie tak wysokich jak te, które planowano, ale jakieś podwyżki zapewne będą. A jeśli mogę się pokusić o bardziej ogólny wniosek z tej krótkiej analizy, to przestrzegałbym przed emocjonalnym reagowaniem na doniesienia prasowe. Zanim się oburzymy sprawdźmy, czy jest o co się oburzyć. A jeśli nie mamy czasu sprawdzić (co jest całkowicie zrozumiałe w nawale obowiązków), to odnotujmy tylko, że w mediach padły jakieś hasła na dany temat. Bez emocji, bez oceniania, do czasu sprawdzenia.
