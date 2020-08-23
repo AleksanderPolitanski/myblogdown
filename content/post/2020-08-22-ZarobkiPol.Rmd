@@ -119,7 +119,7 @@ Możemy dodatkowo zobaczyć jak przedstawia się sytuacja w podziale na poszczeg
 htmlwidgets::saveWidget(pBox, "pBox.html", selfcontained = F, libdir = "lib")
 ```
 
-<iframe width="600" height="600" src="../../content/post/pBox.html"></iframe>
+<iframe width="100%" height="100%" src="../../public/post/pBox.html"></iframe>
 
 Najwyższe zarobki głów państwa w relacji do PKB na osobę pojawiają się w Afryce. Uwaga: skala na osi y jest logarytmiczna, czyli wykres jest bardzo „ściśnięty” w pionie, żeby dało się zmieścić na nim wszystkie wartości. Przy normalnej, liniowej skali, Afryka odfrunęłaby znacznie wyżej. Najwyższe zarobki notują Eswatini (inaczej Suazi) oraz Wielka Brytania – na czele obu tych krajów stoi monarcha. W pierwszej ósemce „najdroższych” głów państwa znajduje się zresztą siedmiu monarchów. Oprócz wymienionych są to królowie, królowe czy emirowie: Kataru, Tonga, Norwegii, Belgii i Szwecji. 
 
