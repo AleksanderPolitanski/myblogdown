@@ -104,7 +104,7 @@ W zakresie zarobków szefów rządów (w większości państw jest to premier, w
 
 A co by się stało, gdyby doszły do skutku planowane podwyżki płac? Z moich wyliczeń wynika, że w takiej sytuacji Polska przesunęłaby się w rankingu nieznacznie:
 
-<p align="center">
+<p align="left">
 <img src="/img/zarobkiPol/rankingi.png" width="40%" height="40%">
 </p>
 
