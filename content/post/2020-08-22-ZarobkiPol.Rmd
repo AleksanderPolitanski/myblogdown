@@ -116,7 +116,7 @@ Nie jest to precyzyjne wyliczenie, bo porównuję tu zarobki głowy państwa i s
 Możemy dodatkowo zobaczyć jak przedstawia się sytuacja w podziale na poszczególne kontynenty. 
 
 ```{r, warning=FALSE, echo=FALSE}
-htmlwidgets::saveWidget(pBox, "pBox.html", selfcontained = F, libdir = "lib")
+#htmlwidgets::saveWidget(pBox, "pBox.html", selfcontained = F, libdir = "lib")
 ```
 
 <iframe width="100%" height="100%" src="pBox.html"></iframe>
