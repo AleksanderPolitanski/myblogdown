@@ -18,6 +18,7 @@ library(plotly)
 library(dplyr)
 library(openxlsx)
 library(htmlwidgets)
+library(withr)
 
 
 zarobkiPol<-read.xlsx(xlsxFile = "../../static/tables/zarobkiPol.xlsx")
@@ -84,6 +85,14 @@ pBox2<-plot_ly(zarobkiPol3,
               x = ~Continent,  
               text = zarobkiPol3[,'State'],
               showlegend = FALSE)
+
+
+withr::with_dir('../../static/img/', saveWidget(pBox, file="pBox.html"))
+withr::with_dir('../../static/img/', saveWidget(pBox2, file="pBox2.html"))
+
+
+# htmlwidgets::saveWidget(pBox2, "../../pBox2.html", selfcontained = F, libdir = "lib")
+
 
 ```
 
