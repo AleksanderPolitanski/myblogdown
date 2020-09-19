@@ -1,0 +1,153 @@
+---
+title: 'Oczywiste oczywistości cz.1: Czy Polska jest homofobiczna?'
+author: "Aleksander Politański"
+date: '2020-09-19T20:31:14-05:00'
+categories: R
+tags:
+- R Markdown
+- plot
+- regression
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+Tym wpisem rozpoczynam minicykl artykułów na temat kwestii, które niektórym mogą wydawać się oczywiste, a które mam zamiar trochę prześwietlić poprzez analizę danych. Wiele przekonań funkcjonujących społecznie nie jest efektem rzetelnej analizy, ale procesów emocjonalnych: paniki moralnej, nagonki, antagonizowania grup społecznych, propagandy itp. Gdyby swoje wrażenie oprzeć na doniesieniach medialnych z ostatnich kilku miesięcy, należałoby dojść do wniosku, że sytuacja osób LGBT w Polsce drastycznie się pogarsza, a Polacy coraz bardziej dają upust swojej homofobii. Czy jest tak rzeczywiście? Jak w ogóle wygląda sytuacja gejów i lesbijek w Polsce na tle innych krajów świata? Jak przedstawia się na tle krajów regionu? Postaram się przynajmniej częściowo odpowiedzieć na te pytania. Nie łudzę się, że w krótkim artykule definitywnie wyklaruję te kwestie, ale mam nadzieję, że przynajmniej zachęcę do poszukiwania innych sposobów orientowania się w aktualnej sytuacji społecznej. 
+
+# Przemoc wobec osób nieheteronormatywnych w Polsce
+
+W niedawnym wywiadzie Beaty Lubeckiej ze sławną/sławnym Margot padły słowa o tym, że w Polsce za bycie osobą LGBT można stracić życie. Gość studia Radia Zet wypowiadał też słowa 
+o regularnej przemocy doznawanej przez przedstawicieli mniejszości seksualnych i że w związku 
+z tym liczy się z faktem, że prędzej czy później ktoś ją/jego w Polsce zabije. Obraz Polski, jaki wyłania się z tego wywiadu jest zatrważający. Jako osobie niezorientowanej w temacie, wypowiedzi Margot wydały mi się mocno przesadzone, zwłaszcza w punktach, w których mowa była o codziennym, realnym zagrożeniu życia. Ale uczciwie muszę przyznać, że moje odczucia nie były poparte wiedzą, 
+a jedynie przeczuciem. Chciałem więc to przeczucie jakoś zweryfikować.
+
+Żeby nie wyważać otwartych drzwi, sprawdziłem czy nie znajdę jakichś wartościowych informacji na temat przemocy wobec osób LGBT w doniesieniach prasowych. Szybki przegląd publikacji dostępnych w Internecie przynosi bardzo problematyczny wniosek. Różne źródła podają różne dane. Ale warto przynajmniej niektórym z nich przyjżeć się bliżej. 
+  
+W 2019 roku, posłowie PO-KO i Nowoczesnej wystosowali interpelację poselską, z pytaniem 
+o to, jaka jest skala homofobii i transfobii w Polsce. Jak donosi [Rzeczpospolita](https://www.rp.pl/Spoleczenstwo/303129925-Homofobii-nie-ma-w-statystykach.html) w odpowiedzi na tę interpelację zebrane zostały policyjne statystyki, dotyczące tak zwanych przestępstw z nienawiści. Są to przestępstwa motywowane nienawiścią do konkretnej grupy społecznej – rasistowskie, antysemickie, homofobiczne itp. Ze statystyk tych wynikać miało, że przestępstwa motywowane nienawiścią wobec mniejszości seksualnych stanowiły bardzo niewielki odsetek przypadków w porównaniu do innych grup. Od 2016 do 2018 było to odpowiednio 12, 5 lub 2 takie przestępstwa rocznie. W tych samych latach przestępstw motywowanych narodowo lub etnicznie było 465, 487 i 356. Wydawałoby się zatem, że problem przemocy wobec osób LGBT rysuje się jako marginalny w porównaniu z przemocą z pobudek ksenofobicznych.
+
+Kampania przeciw homofobii podaje natomiast dane całkiwicie sprzeczne z tymi, które zebrała policja. Według tej organizacji [„średnio 3 na 10 osób LGBT doświadczyło przemocy fizycznej lub psychicznej w ciągu ostatnich 5 lat”](https://kph.org.pl/porazajaca-skala-przemocy-wobec-osob-lgbt-w-polsce-najnowsze-dane/). Oczywiście, sformułowanie to dotyczy innej kwestii niż stricte przestępstwa, jednak widać tu już olbrzymi rozdźwięk. Jeśli przemoc wobec mniejszości seksualnych byłaby tak powszechna, należałoby się chyba spodziewać odbicia tego faktu w postaci zgłaszanych na policję incydentów. Rozdźwięk, który się pojawia, tłumaczony jest przez niektórych tym, że osoby LGBT nie mają zaufania do policji i dlatego nie zgłaszają aktów przemocy, których doznają. Zdanie to, znajduje potwierdzenie w badaniach Kampanii Przeciw Homofobii i Centrum Badań nad Uprzedzeniami Uniwersytetu Warszawskiego. W części ilościowej tego badania, udało się zebrać odpowiedzi 1405 osób. Tylko 21 z nich „zgłosiło organom ścigania najpoważniejszy przypadek przemocy fizycznej lub psychicznej motywowanej nienawiścią”, mimo że aż 1/3 badanych doświadczyła w ciągu ostatnich pięciu lat przemocy fizycznej lub psychicznej. Wynikałoby z tego, że tylko 21 osób z 412 zgłosiło policji przemoc, jakiej padli ofiarą. Stanowi to niewiele ponad 5%. Z badania wynikało, że generalnie osoby LGBTQ doświadczają przemocy mniej więcej dwukrotnie częściej niż osoby z populacji ogólnej. Przy czym najbardziej narażone na doznawanie przemocy są osoby transpłciowe (ponad czterokrotnie częściej niż w populacji ogólnej). Gwoli precyzji należy nadmienić, że metodologia przytoczonego badania ma swoje słabe strony – między innymi ograniczona kontrola nad procesem zbierania danych, ponieważ ankiety wypełniano w Internecie, a badanych rekrutowano między innymi przy pomocy stron Kampanii Przeciw Homofobii i innych stron internetowych przeznaczonych dla osób LGBT (np. queer.pl). Należy się spodziewać, że selekcja od razu była obarczona pewnym błędem. Obawiam się, że osoby korzystające zwłaszcza ze strony (a tym bardziej newslettera) Kampanii Przeciw Homofobii nie są losową próbą przedstawicieli mniejszości seksualnych w Polsce, ale mogą być grupą szczególnie zainteresowaną tematyką przemocy doświadczanej przez osoby LGBT. Reprezentatywność zebranej próby mogła nieco na tym ucierpieć.
+  
+Wszystko to pokazuje jak trudna do badana jest powyższa materia. Niestety, dane mogą być lepszej lub gorszej jakości. Mogą opierać się na mniej lub bardziej adekwatnych podstawach. Jeśli miałbym sformułować ostrożny wniosek z przytoczonego raportu, to taki, że przemoc wobec osób LGBT może być częstsza, a czasem dużo częstsza niż wobec osób z próby ogólnej i że należałoby dołożyć starań, żeby ułatwić osobom reprezentującym tę mniejszościową grupę proces zgłaszania doznawanej przemocy organom ścigania. Należałoby też monitorować postęp w tym zakresie – im większy odsetek takich przestępstw będzie zgłaszany, tym bardziej rzetelny obraz rzeczywistej skali przemocy będziemy mieli. 
+  
+W raporcie z badania przedstawiono powody, dla których osoby reprezentujące mniejszości seksualne nie decydowały się na zgłaszanie incydentów przemocy policji. Pozwolę sobie przekleić wykres z raportu:
+
+
+<img src="/img/LGBT/przemoc.png" width="50%" height="50%">
+
+Głównym powodem jest więc postrzegana niechęć i niemoc policji w działaniach zmierzających do ujęcia sprawców. Nasuwa mi się tu pytanie, czy tak niską wiarę w skuteczność policji mają tylko osoby LGBT, czy też jest to powszechny pogląd. Jak często w populacji ogólnej zgłaszane są przypadki doznawania przemocy? Tych informacji brakuje. Zastanówmy się – czy możemy stwierdzić, że skoro tylko około 5% incydentów przemocy jest zgłaszanych policji przez osoby LGBT, to wystarczy pomnożyć statystyki policyjne dwudziestokrotnie i dostaniemy realną skalę przestępstw z nienawiści wobec tej grupy w Polsce? Moim zdaniem nie, oto dlaczego: z pewnością nie tylko przemoc wobec osób LGBT jest rzadko zgłaszana. Sytuacja doznawania przemocy jest psychologicznie trudna. Ofiary mogą odczuwać między innymi strach przed odwetem czy wstyd spowodowany tym, że znalazły się w takiej sytuacji. Te same mechanizmy psychologiczne obowiązują także w innych grupach mniejszościowych – etnicznych czy rasowych – oraz wszystkich osób pozostających z jakiegoś powodu na słabszej pozycji niż oprawcy. Dotyczy to także bitych kobiet, dzieci, osób starszych, osób pozostających w relacji podległości wobec sprawcy (np. mobbing w pracy). Przykłady można mnożyć. Nie jest zatem tak, że znamy rzeczywistą skalę przemocy wobec wszystkich grup, a tylko w grupie osób LGBT ta skala jest niewiadoma. Musimy zdawać sobie sprawę 
+z tego, że przemoc bardzo często jest po prostu ukryta przed oczami badaczy. 
+  
+Jeszcze raz powtórzę: badana materia jest bardzo trudna do trafnego oszacowania. Tym bardziej, wielki szacunek do naukowców, którzy starają się przybliżyć te kwestie. Na stronie eurostatu, dotyczącej przestępczości w Europie znalazłem następujący fragment:
+
+\textcolor{red}{
+
+  *Statystyki przestępczości przedstawione w tym artykule dotyczą przestępstw i wykroczeń odnotowywanych przez policję w państwach członkowskich UE i kilku innych państwach europejskich. Dane te nie są wyczerpującym opisem przestępczości w Europie: nie wszystkie przestępstwa są zgłaszane, a zmiany wskaźników poszczególnych przestępstw i wykroczeń mogą być skutkiem nowych strategii policyjnych lub zmian metodologicznych.*
+
+  *Na ogół nie da się w prosty sposób porównać rodzajów i poziomów przestępczości w różnych krajach, ponieważ systemy prawne i wymiaru sprawiedliwości w sprawach karnych różnią się w takich kwestiach, jak definicje przestępstw. [1] metody zgłaszania, rejestrowania i liczenia przypadków przestępstw, a także wskaźniki wyrażające stosunek przestępstw zgłaszanych i niezgłaszanych.*
+
+}  
+
+W mojej ocenie najlepsze, co na razie możemy robić w kwestii społecznych dyskusji na temat skali przemocy wobec osób LGBT, to zachować daleko idącą ostrożność w formułowaniu ostatecznych wniosków, jednocześnie poświęcając życzliwą uwagę wszystkim głosom ujawniającym przypadki tej przemocy. Cywilizowana część społeczeństwa (przytłaczająca większość) na pewno jest zgodna, co do tego, że każda przemoc jest zła i każdą należy ujawniać i odpowiednio osądzać. 
+
+Przytoczyłem tu tylko fragmenty wyników raportu Kampanii Przeciwko Homofobii. Opracowanie wydaje się obszerne i rzetelnie wykonane, zatem polecam lekturę, jeśli ktoś byłby zainteresowany. 
+
+
+# Polska wobec LGBT na tle innych krajów i regionów (Legatum Prosperity Index)
+
+Po dotknięciu tak złożonej i trudnej materii jak skala przemocy mam potrzebę ujęcia jakichś bardziej uchwytnych danych. Trafiłem w Internecie na Legatum Prosperity Index – ranking krajów świata pod względem szeroko rozumianego dobrostanu ich mieszkańców. Był on dla mnie o tyle interesujący, że pośród wielu badanych aspektów znalazły się dwa dotyczące osób LGBT. Jeden z nich to „Prawa LGBT”, oceniany na skali od 0 do 3 punktów (tylko wartości całkowite). Drugi – „Postrzegana tolerancja dla osób LGBT”, oceniana na skali od 0 do 1 (w skali ciągłej, czyli z częściami dziesiętnymi). Oczywiście, im wyższy wynik na obu skalach, tym większe prawa i tolerancja wobec mniejszości seksualnych w danym kraju. 
+
+W zakresie wskaźnika „Prawa LGBT” Polska od momentu powstania rankingu w 2009 roku, do najnowszego wydania w 2019, notowała zawsze 1 punkt. Jako, że skala jest czterostopniowa, wydaje się, że jest to niezbyt wysoka nota. Zobaczmy jednak, jak wypadamy na tle innych krajów świata.
+
+
+<img src="/img/LGBT/lgbtRights2019.jpg" width="85%" height="85%">
+
+W 2019 roku taki sam wynik jak Polska (1 punkt) na skali praw osób LGBT w wymienionym rankingu dostała prawie cała Azja (oprócz bliskiego wschodu), część państw Afryki oraz większość Europy środkowowschodniej a także niektóre państwa Ameryki Południowej. 0 punktów zanotowały przede wszystkim państwa muzułmańskie – bliski wschód i północna Afryka. 2 punkty przyznawano w rankingu bardzo rzadko, głównie państwom Europy Środkowej (Włochy, Szwajcaria, Czechy, Węgry, Grecja, Chorwacja, Izrael) a w Ameryce Południowej: Chile i Ekwadorowi. Najwyższe wyniki przyznawano przeważnie bogatym krajom (Europa Zachodnia, Ameryka Północna, Australia, Nowa Zelandia) a oprócz tego pojawiały się w RPA, Brazylii, Kolumbii, Argentynie i Urugwaju. Z mapki widać, że Polska znajduje się w ciekawym punkcie, w którym sąsiadują ze sobą kraje oceniane zarówno na 3, 2 jak i 1 punkt. Może jest to jeden z powodów, dla których w Polsce problem ten budzi tak wiele emocji. Część społeczeństwa chciałaby żebyśmy poszli w stronę rozwiązań Europy Zachodniej, inna część chętnie zostałaby przy prawodawstwie wschodnim. 
+
+Zobaczmy teraz, jak wyniki kształtowały się w poszczególnych regionach świata na przestrzeni czasu. Czy cały świat idzie raczej w stronę liberalizacji, czy zaostrzania prawa względem mniejszości seksualnych?
+
+
+
+<img src="/img/LGBT/lgbtRightsSubregionGG.jpg" width="85%" height="85%">
+
+
+Poza krajami muzułmańskimi (Bliski Wschód i Północna Afryka) wskaźniki podpowiadają, że liberalizacja praw wobec osób LGBT generalnie postępuje. Na przestrzeni ostatnich 10 lat można wręcz powiedzieć o rewolucyjnej skali zmian na Zachodzie. Polska, zaliczona tu do krajów Europy Wschodniej, nie wyróżnia się w regionie, jako kraj szczególnie opresyjny względem osób LGBT. Pytanie oczywiście brzmi, w którym kręgu kulturowym bardziej się widzimy. Na tle państw Unii Europejskiej, Polskie prawodawstwo zdecydowanie zaniża średnią. 
+
+Przyjżyjmy się zatem mapce, prezentującej poziom postrzeganej tolerancji względem osób LGBT w 2019 roku. Mapka ta bardzo przypomina poprzednią. Najjaśniejszym kolorem zaznaczone są kraje najbardziej tolerancyjne. Im ciemniejszy kolor, tym niższy poziom tolerancji. 
+
+
+<img src="/img/LGBT/lgbtTolerance2019GG.jpg" width="85%" height="85%">
+
+Znów jasne punkty na mapie to Europa, Ameryka Północna, Australia z Nową Zelandią 
+i większość Ameryki Południowej. Afryka, Azja i Europa Wschodnia nie są na ogół pozytywnie nastawione do mniejszości seksualnych.
+
+
+A teraz mapka w ujęciu dynamicznym, z podziałem według regionów świata. 
+
+
+<img src="/img/LGBT/lgbtToleranceSubregionGG.jpg" width="85%" height="85%">
+
+
+Na przestrzeni lat 2009-2019, w porównaniu do krajów regionu, Legatum Prosperity Index przyznawało Polsce wręcz wyższe wyniki niż średnio państwom Europy Wschodniej. Trzeba natomiast powiedzieć, że Europa Wschodnia generalnie znajduje się na tej skali bardzo nisko.
+  
+Ogólna tendencja w naszym kraju jest raczej wznosząca. Powoli zmierzamy raczej w stronę zwiększania poziomu tolerancji wobec osób LGBT. Zwracam uwagę, że średnia dla Azji i Pacyfiku jest trochę myląca, bo zawyżają ją wyniki Australii i Nowej Zelandii (średnia jest miarą bardzo wrażliwą na wyniki odstające). Podobnie jak przy analizie poprzedniego wskaźnika, możemy stwierdzić, że świat zmierza raczej 
+w kierunku liberalizacji obyczajów względem mniejszości seksualnych. Cieszyć może poprawa wskaźników w Afryce Subsaharyjskiej w ostatnich latach. Być może jest to zapowiedź dalszego trendu. 
+
+Pozwolę sobie zatem zebrać wnioski. Po pierwsze, Polska nie odbiega radykalnie poziomem tolerancji wobec osób LGBT od innych krajów regionu, jeśli popatrzymy na nasz kraj jako na część Europy Wschodniej. Gdyby natomiast spoglądać na Polskę jako na część Unii Europejskiej, należałoby stwierdzić, że odbiegamy od średniej notowanej w tym zbiorze. Można powiedzieć, że w kwestiach obyczajowo-seksualnych znacznie bliżej nam do Słowiańszczyzny niż do Zachodu. Wydaje się natomiast, że proces liberalizacji obyczajowej jest globalny. Polska upodabnia się powoli do Zachodu zarówno poziomem życia, religijnością, stylem życia (widocznym chociażby w popkulturze). Myślę, że powoli będziemy zmierzać w stronę krajów bardziej tolerancyjnych.
+
+
+# Szukanie wzoru na tolerancję
+
+Postanowiłem jeszcze sprawdzić jak wyglądają dane z Legatum Prosperity Index, przy uwzględnieniu dodatkowych zmiennych. Zobaczmy najpierw jak wygląda mapa świata, 
+z zaznaczonym odsetkiem ludności wyznającej Islam. 
+
+
+<img src="/img/LGBT/islamGG.jpg" width="85%" height="85%">
+
+
+Do pewnego stopnia kolory te korespondują z wynikami pokazanymi wcześniej. Zobaczmy więc jak odsetek muzułmanów w kraju przekłada się na prawa osób LGBT i tolerancję wobec tej grupy.
+
+
+<img src="/img/LGBT/lgbtRightsIslam2019GG.jpg" width="85%" height="85%">
+
+
+Powyżej widzimy wykresy pudełkowe, pokazujące rozkłady odsetka muzułmanów żyjących w danym państiwe, na każdym poziomie skali wymiaru „prawa LGBT” z Legatum Prosperity Index. Wnioski są zgodne z tym, co rzucało się w oczy na pierwszych mapkach. Państwa klasyfikowane na poziomie 2 i 3 to generalnie państwa o niskim odsetku muzułmanów. Wyjątek stanowią dwa punkty zarejestrowane na poziomie 2. Sprawdziłem, że są to Cypr (25,3% muzułmanów) oraz Izrael (18% muzułmanów). Na poziomie 1 pojawia się już znacznie więcej krajów islamskich, nawet takie, w których muzułmanów jest blisko 100%. Stanowią one jednak w tej grupie mniejszość. Na poziomie 0 mediana odsetka islamistów w danym państwie przekracza 60%. Co ciekawe, znalazły się tu jednak także państwa o bardzo niskim odsetku obywateli muzułmańskich. Można tu wymienić  Sri Lankę (tylko 9,7% muzułmanów), Gujanę (7,3% muzułmanów) a także państwa, w których islamiści stanowią poniżej 1% populacji: Zambię, Zimbabwe, Botswanę, Namibię, Jamajkę i Papuę Nową Gwineę. 
+
+Teraz podobny rzut oka na dane dotyczące poziomu tolerancji wobec osób LGBT 
+w poszczególnych krajach, w zależności od odsetka muzułmanów. 
+
+<img src="/img/LGBT/lgbtToleranceIslam2019GG.jpg" width="85%" height="85%">
+
+Dane te wyglądają bardzo podobnie do poprzednich. Im wyższy poziom tolerancji, tym mniej pojawia się na wykresie kropek reprezentujących kraje o wysokich wskaźnikach mieszkańców wierzących w Allaha. Najniższe wskaźniki pojawiają się natomiast nie tylko w krajach muzułmańskich, ale także w tych, gdzie Islam pozostaje w zdecydowanej mniejszości. 
+	
+Zobaczmy teraz jak prezentuje się rozkład wyników na skali praw osób LGBT w zależności od PKB per capita w danym kraju (zwracam uwagę, że skala osi y jest logarytmiczna).
+	
+<img src="/img/LGBT/lgbtRightsGDP2019GG.jpg" width="85%" height="85%">
+
+Wykres wyraźnie pokazuje tendencję. Im bogatszy kraj, tym bardziej liberalne prawodawstwo względem mniejszości seksualnych. Zastanawiać mogą obserwacje odstające na poziomach 0 i 1, czyli kraje względnie bogate, ale z restrykcyjnym prawodawstwem względem osób LGBT. Na najniższym poziomie są to: Singapur, Katar, Zjednoczone Emiraty Arabskie, Kuwejt i Arabia Saudyjska. Poza Singapurem, są to państwa muzułmańskie (od 74,6% do 98,2% mieszkańców). Co ciekawe, Singapur jest państwem, gdzie islam jest dopiero trzecią religią (14,7%). Więcej w tym kraju jest buddystów (33,9%) oraz chrześcijan (18,2%). Jako bogaty, nieislamski kraj, powinien raczej plasować się gdzieś 
+w pudełkach z numerem 2 lub 3. Musi mieć na to wpływ jakiś inny czynnik, którego na razie nie uwzględniłem. Na poziomie 1 również widzimy kilka odstających kropek. Są to od samej góry: Hong Kong, Japonia, Korea Południowa i Bahrain. Poza Bahrainem (73,7% muzułmanów) są to kraje niemuzułmańskie (Hong Kong: 4,1%, Korea i Japonia: blisko 0%). Ponownie, świadczy to o tym, że jest jakaś inna zmienna, która tłumaczy stosunek państw do praw osób LGBT. Należy zauważyć, że na tle innych krajów z oceną „1” Polska jest krajem - nie bójmy się tego powiedzieć - bogatym. Potwierdza się więc to, o czym napisałem wcześniej. Upodabniamy się coraz bardziej do krajów bogatego Zachodu. Jeszcze jesteśmy na ich tle ubogim krewnym, ale tendencja jest wznosząca. Może to trochę tłumaczyć napięcia pojawiające się w społeczeństwie. Skoro na wielu płaszczyznach zbliżamy się do krajów bogatych, to dlaczego odstajemy od nich w kwestiach, powiedzmy „obyczajowych”?
+
+A teraz rzut oka na PKB per capita w przecięciu z poziomem tolerancji wobec osób LGBT. 
+
+<img src="/img/LGBT/lgbtToleranceGDP2019GG.jpg" width="85%" height="85%">
+
+Widzimy ponownie, że wzrost bogactwa kraju sprzyja wzrostowi tolerancji. Potwierdza się też obserwacja, że jak na swój poziom tolerancji wobec osób LGBT, Polska jest jednym z bogatszych krajów. Bogacimy się szybciej niż liberalizujemy obyczajowo. Zwracam uwagę na kropkę, w prawym, dolnym rogu. To Nepal, państwo o niskim PKB per capita, pozostające w światowej czołówce, jeśli chodzi o poziom tolerancji wobec osób LGBT. Nie mam pojęcia skąd wynika ta charakterystyka, ale czyni ona ten kraj unikalnym. 
+	
+Reasumując, można doszukiwać się pewnych zmiennych, tłymaczących to, jak tolerancyjny dla osób LGBT jest dany kraj. „Na warsztat” wziąłem tu dwie charakterystyki, rzucające się w oczy na pierwszych dwóch mapkach: odsetek ludności wyznającej Islam oraz PKB per capita. Generalnie, kraje najbardziej tolerancyjne są też najbogatsze i najczęściej charakteryzują się niskim odsetkiem obywateli wyznających Islam. Wiemy skądinąd, że świat generalnie ciągle się bogaci a jak pokazały wykresy z pierwszego podrozdziału, globalna tendencja do liberalizacji także jest wznosząca. Tym bardziej może zastanawiać, co sprawia, że Polska (podobnie jak inne państwa Europy Wschodniej) nie podąża ochoczo za światowym trendem. 
+
+
+# Czy można powiedzieć, że Polska jest homofobiczna?
+
+Zadane pytanie było oczywiście trochę prowokacyjne. Rzetelna odpowiedź na nie przerasta też ilość czasu, jaką przeznaczyłem na ten artykuł. Z pewnością nie znajdujemy się w pierwszym rzędzie państw pod względem poziomu tolerancji. Z drugiej strony, procesy kulturowe i obyczajowe płyną własnym tempem i w każdym kraju mają swoją dynamikę. Rozumiem frustrację i niecierpliwość osób LGBT, kiedy poruszając się swobodnie po Europie porównują naszą sytuację z tą, jaka panuje na Zachodzie. Pytanie tylko, czy tej niecierpliwości należy dawać upust w postaci zachowań agresywnych? Czy jest to rzeczywiście skuteczny sposób na przyspieszenie procesów kulturowych? Tego nie wiem, ale się domyślam…
+  
+Patrząc na dane dotyczące PKB można dojść do przekonania, że Polska stopniowo staje się krajem nietypowym. Swoim profilem zaczyna upodabniać się do państw, które charakteryzują się wysokim poziomem tolerancji, ale jej obyczajowość pozostaje dość konserwatywna. Bogacenie się to oczywiście nie wszystko. Pozostają też rozmaite wpływy kulturowe. Z całą pewnością konserwatyzm Polskiego społeczeństwa jest powiązany z siłą oddziaływania Kościoła. O tym jak istotny jest wpływ religii na obyczajowość pokazały zaprezentowane przeze mnie statystyki, dotyczące odsetka wierzących muzułmanów w danym kraju. Jeśli rzeczywiście to Kościół utrzymuje Polskę po stronie państw konserwatywnych obyczajowo, to z pewnością nadchodzi zmiana. Polska bowiem, jest 
+w absolutnej awangardzie krajów jeśli chodzi o [laicyzację młodego pokolenia](https://www.newsweek.pl/polska/duzy-spadek-liczby-wiernych-w-kosciolach-prywatyzacja-wiary-wedlug-prof-mikolejki/mldtj0m).
+
+Jeśli chodzi o samą przemoc względem osób LGBT, zalecałbym daleko idącą ostrożność 
+w diagnozowaniu sytuacji w Polsce. Rzeczywista jej skala pozostaje niejasna. Pewne jest jednak to, że w kwestii poprawy bezpieczeństwa osób LGBT mamy jeszcze wiele do zrobienia. Zapewnienie przynajmniej tego minimum – fizycznego bezpieczeństwa - jest naszym obowiązkiem, powiedziałbym, cywilizacyjnym. 
+
+Zdaję sobie sprawę z tego, że temat można by było przeanalizować znacznie głębiej. Mam jednak nadzieję, że przynajmniej dołożyłem trochę informacji do aktualnej dyskusji.
+
+
+__Konkluzja:__ Polska obecnie wydaje się bardziej konserwatywna, niż wskazywałoby na to jej położenie na mapie, jej bogactwo czy przynależność do kręgu kulturowego. Zmiany jednak nieuchronnie nadchodzą. Ważne, żeby przez okres transformacji przejść względnie spokojnie, z wzajemnym poszanowaniem i bez generowania napięcia większego, niż to konieczne. Nie oznacza to rzecz jasna, że Polska nie może wypracować własych rozwiązań. Racjonalne jest jednak przypuszczać, że będą to rozwiązania coraz bliższe tym Zachodnim.
