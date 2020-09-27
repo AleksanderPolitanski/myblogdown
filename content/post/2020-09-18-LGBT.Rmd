@@ -22,7 +22,7 @@ o regularnej przemocy doznawanej przez przedstawicieli mniejszości seksualnych 
 z tym liczy się z faktem, że prędzej czy później ktoś ją/jego w Polsce zabije. Obraz Polski, jaki wyłania się z tego wywiadu jest zatrważający. Jako osobie niezorientowanej w temacie, wypowiedzi Margot wydały mi się mocno przesadzone, zwłaszcza w punktach, w których mowa była o codziennym, realnym zagrożeniu życia. Ale uczciwie muszę przyznać, że moje odczucia nie były poparte wiedzą, 
 a jedynie przeczuciem. Chciałem więc to przeczucie jakoś zweryfikować.
 
-Żeby nie wyważać otwartych drzwi, sprawdziłem czy nie znajdę jakichś wartościowych informacji na temat przemocy wobec osób LGBT w doniesieniach prasowych. Szybki przegląd publikacji dostępnych w Internecie przynosi bardzo problematyczny wniosek. Różne źródła podają różne dane. Ale warto przynajmniej niektórym z nich przyjżeć się bliżej. 
+Żeby nie wyważać otwartych drzwi, sprawdziłem czy nie znajdę jakichś wartościowych informacji na temat przemocy wobec osób LGBT w doniesieniach prasowych. Szybki przegląd publikacji dostępnych w Internecie przynosi bardzo problematyczny wniosek. Różne źródła podają różne dane. Ale warto przynajmniej niektórym z nich przyjrzeć się bliżej. 
   
 W 2019 roku, posłowie PO-KO i Nowoczesnej wystosowali interpelację poselską, z pytaniem 
 o to, jaka jest skala homofobii i transfobii w Polsce. Jak donosi [Rzeczpospolita](https://www.rp.pl/Spoleczenstwo/303129925-Homofobii-nie-ma-w-statystykach.html) w odpowiedzi na tę interpelację zebrane zostały policyjne statystyki, dotyczące tak zwanych przestępstw z nienawiści. Są to przestępstwa motywowane nienawiścią do konkretnej grupy społecznej – rasistowskie, antysemickie, homofobiczne itp. Ze statystyk tych wynikać miało, że przestępstwa motywowane nienawiścią wobec mniejszości seksualnych stanowiły bardzo niewielki odsetek przypadków w porównaniu do innych grup. Od 2016 do 2018 było to odpowiednio 12, 5 lub 2 takie przestępstwa rocznie. W tych samych latach przestępstw motywowanych narodowo lub etnicznie było 465, 487 i 356. Wydawałoby się zatem, że problem przemocy wobec osób LGBT rysuje się jako marginalny w porównaniu z przemocą z pobudek ksenofobicznych.
@@ -74,7 +74,7 @@ Zobaczmy teraz, jak wyniki kształtowały się w poszczególnych regionach świa
 
 Poza krajami muzułmańskimi (Bliski Wschód i Północna Afryka) wskaźniki podpowiadają, że liberalizacja praw wobec osób LGBT generalnie postępuje. Na przestrzeni ostatnich 10 lat można wręcz powiedzieć o rewolucyjnej skali zmian na Zachodzie. Polska, zaliczona tu do krajów Europy Wschodniej, nie wyróżnia się w regionie, jako kraj szczególnie opresyjny względem osób LGBT. Pytanie oczywiście brzmi, w którym kręgu kulturowym bardziej się widzimy. Na tle państw Unii Europejskiej, Polskie prawodawstwo zdecydowanie zaniża średnią. 
 
-Przyjżyjmy się zatem mapce, prezentującej poziom postrzeganej tolerancji względem osób LGBT w 2019 roku. Mapka ta bardzo przypomina poprzednią. Najjaśniejszym kolorem zaznaczone są kraje najbardziej tolerancyjne. Im ciemniejszy kolor, tym niższy poziom tolerancji. 
+Przyjrzyjmy się zatem mapce, prezentującej poziom postrzeganej tolerancji względem osób LGBT w 2019 roku. Mapka ta bardzo przypomina poprzednią. Najjaśniejszym kolorem zaznaczone są kraje najbardziej tolerancyjne. Im ciemniejszy kolor, tym niższy poziom tolerancji. 
 
 
 <img src="/img/LGBT/lgbtTolerance2019GG.jpg" width="85%" height="85%">
