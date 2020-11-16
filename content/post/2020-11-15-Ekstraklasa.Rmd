@@ -1,0 +1,94 @@
+---
+title: 'Oczywiste oczywistości cz.2. Czy polska ekstraklasa piłki nożnej jest beznadziejna?'
+author: "Aleksander Politański"
+date: '2020-11-15T20:31:14-05:00'
+categories: R
+tags:
+- R Markdown
+- plot
+- regression
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+Po dłuższej przerwie wracam do analiz. Tym razem temat znacznie lżejszy – piłka nożna. Inspiracją jest tutaj oczywiście pierwszy od kilku lat posuchy, względny sukces polskiej drużyny klubowej na arenie międzynarodowej. Chodzi, rzecz jasna, o Lech Poznań i fakt jego zakwalifikowania się do fazy grupowej Ligi Europy, czyli pucharu „drugiej ligi” klubów europejskich (jako „pierwszą ligę” należy rozumieć oczywiście Ligę Mistrzów). Z okazji sukcesu Kolejorza, chciałem rozpatrzeć pytanie, na które odpowiedź wydaje się oczywista, ale które warto, moim zdaniem, zgłębić. Zatem – czy polska ekstraklasa jest zadupiem i zakałą europejskiej piłki klubowej? A może nie jest aż tak źle? Dla uproszczenia, skupię się na ostatniej dekadzie osiągnięć Ekstraklasy. (Tym razem będzie trochę więcej tabelek a mniej wykresów, bo na poziomie technicznym większość analiz robiłem w SQLu). 
+
+# Ranking lig UEFA
+
+Żeby nie wyważać otwartych drzwi, zacznę najpierw od czegoś, co już zostało przeanalizowane. UEFA prowadzi każdego roku ranking lig europejskich [1](https://www.uefa.com/memberassociations/uefarankings/country/#/yr/2011) [2](https://www.transfermarkt.pl/uefa/5jahreswertung/statistik/stat/plus/0?saison_id=2010). Wyniki rankingu są kształtowane na podstawie osiągnięć klubów z poszczególnych krajów w europejskich rozgrywkach pucharowych. Zaprezentuję wyniki od zakończenia sezonu 2011/2012. Dane dla 2020/2021 nie są jeszcze kompletne – mogą ulec zmianie do końca tegorocznych rozgrywek. 
+
+<img src="/img/Ekstraklasa/1.png" width="60%" height="60%">
+
+W rankingu branych pod uwagę jest 55 krajów. Polska liga w ostatniej dekadzie oscylowała gdzieś pomiędzy miejscami 18 (w sezonie 2015/16) a 29-30 (w ostatnich dwóch sezonach). Szału raczej nie ma. Od pięciu sezonów nasza liga notuje konsekwentnie kolejne spadki w rankingu, z czego największy w poprzednim – 2019/2020. Spadliśmy wtedy aż o 5 oczek. Oto zestawienie kolejnych krajów, których ligi wyprzedzały nas w kolejnych sezonach, od roku, w którym zajęliśmy najlepsze, 18 miejsce:
+
+<img src="/img/Ekstraklasa/2.png" width="60%" height="60%">
+
+Nie są to, jak widać, piłkarskie potęgi. Najbardziej egzotyczne kraje prześcignęły nas w niesławnym sezonie 2019/2020, kiedy to zaczęliśmy oglądać nawet plecy lig Azerskiej i Kazachskiej. 
+Na przestrzeni dekady spadliśmy generalnie o 10 pozycji. Czy jakiś kraj zanotował równie dotkliwy spadek? Owszem – Islandia (spadek o 11 pozycji), Gruzja (spadek o 12 pozycji) i Finlandia (spadek o 13 pozycji). Powtórzmy. Tylko cztery kraje z 55 zanotowały w ostatniej dekadzie większy, lub równy spadek jak Polska. Konkretnie wygląda to w ten sposób:
+
+<img src="/img/Ekstraklasa/3.png" width="60%" height="60%">
+
+A więc dzisiaj jesteśmy w miejscu, z którego 10 lat temu startowały Gruzja i Finlandia. Czy za 10 lat możemy znaleźć się tam gdzie one teraz? Na ten moment nie wydaje się to możliwe, ale kto wie… 
+
+A które ligi zyskały najbardziej? Komu udało się wyrwać z przeciętności?  
+
+<img src="/img/Ekstraklasa/4.png" width="60%" height="60%">
+
+Znajdziemy tutaj ligi państw, które zostawiły nas w tyle – Azerbejdżan, Serbię i Kazachstan, a także państwa, które, choć ciężko w to uwierzyć, depczą nam po piętach – Liechtenstein, Armenię i Luksemburg. Serio. 
+
+Pozycje w rankingu UEFA są generalnie dość stabilne. Zapewnia to, rzecz jasna, metodologia przyznawania punktów na podstawie pięciu poprzednich lat. Nie jest więc łatwo o gwałtowny spadek. 
+Podzieliłem kraje na kategorie, na podstawie tego jakie pozycje zajmowały w sezonie 2011/2012.  Sprawdziłem jakie średnio pozycje zajmowały dziesięć lat później. Oto efekt:
+
+<img src="/img/Ekstraklasa/5.png" width="60%" height="60%">
+
+Generalnie – nie widać tu wielkich przetasowań. Dałoby się te zmiany pokazać lepiej, ale zostańmy przy takim, bardzo ogólnym rzucie oka. Widać, że górna dziesiątka pozostaje praktycznie poza zasięgiem. Kraj, któremu udało się wskoczyć do top 10 lig Europy to Belgia (awans z 12 miejsca). Spadła natomiast Grecja (z 10 na 17 miejsce). Im niższa kategoria w rankingu, tym nieco większa zmienność pozycji, ale nadal widać dość dużą stabilność.  
+	
+
+Jak by na to nie patrzeć, w rankingu UEFA wyglądamy w ostatniej dekadzie bardzo słabo, żeby nie powiedzieć tragicznie. Jesteśmy w ścisłej czołówce państw, których ligi najostrzej pikowały w dół. Oczywiście wynika to z załamania w ostatnim pięcioleciu, kiedy żadnej z Ekstraklasowych drużyn nie udawało się przebrnąć przez eliminacje. Dlatego też obecny sukces Lecha był tak wyczekiwany. 
+
+
+
+# Europejskie puchary
+
+Proponuję teraz trochę bardziej szczegółowo zbadać sytuację w europejskich pucharach. Jak sumarycznie wyglądały nasze osiągnięcia w ostatniej dekadzie, na tle innych lig Europy? Zacznijmy od tego, że części państw zrzeszonych w UEFA nie udało się zakwalifikować ani razu ani do LE ani LM od sezonu 2011/2012. Takich państw było 18. Oto one: Andora, Armenia, Bośnia i Hercegowina, Czarnogóra, Estonia, Gibraltar, Gruzja, Irlandia Północna, Islandia, Kosowo, Liechtenstein, Litwa, Macedonia Północna, Malta, San Marino, Walia, Wyspy Owcze, Łotwa. Umówmy się, że są to państwa, w których profesjonalny futbol klubowy praktycznie nie istnieje. Żeby pokazać skalę, weźmy kilka najsilniejszych klubów z tej grupy państw i zobaczmy jak wyglądają one na tle, na przykład, dzisiejszej Legii. 
+
+<img src="/img/Ekstraklasa/6.png" width="60%" height="60%">
+
+Legia nie jest europejskim potentatem, a jej wartość rynkowa i tak jest prawie dwukrotnie wyższa niż wartość Dinama, Rygi i Levadii razem wziętych. No, po prostu nie ma o czym mówić. Pozostałych lig nawet nie ma sensu dotykać. Mówimy o innym, zupełnie innym piłkarskim świecie. Jeśli już mówimy o skali, to przy okazji – łączna liczba ludności wszystkich tych 18 krajów to niewiele ponad 27 milionów. Polska, z naszymi 38 milionami mieszkańców, wygląda przy nich jak gigant. Oczywiście to nie populacja gra w piłkę – gdyby tak było, to Chiny i Indie byłyby piłkarskimi potęgami. Ale, mimo wszystko, wiemy w czym rzecz. Wymieniona osiemnastka państw to po prostu europejski plankton, który nie liczy się na arenie międzynarodowej. 
+
+A więc z 55 lig zrzeszonych w UEFA, 37 możemy uznać za profesjonalne, liczące się jakkolwiek w rywalizacji międzynarodowej. Przypominam, że w rankingu UEFA jesteśmy obecnie na miejscu 30. Wymienię więc dla porządku jeszcze tych 7 lig, które uznałbym za profesjonalne, a które nasza Ekstraklasa jeszcze wyprzedza. Są to ligi: Albańska, Fińska, Irlandzka, Luksemburska, Mołdawska, Słowacka i Słoweńska. W tych ligach już przynajmniej można spotkać drużynę o rozpoznawalnej nazwie. Na przykład Sheriff Tyraspol, Maribor, Żilina czy Slovan Bratysława. No, ciągle nie potęgi, ale jakieś jednak zespoły to są. A trzeba też pamiętać, że naszym orłom zdarzały się też wpadki w meczach z zespołami z tych siedmiu lig.  Sheriff pokonał Legię Warszawa w eliminacjach LE w 2017 roku (dwa remisy; zespół z Mołdawii awansował dzięki bramce zdobytej na wyjeździe). Słowacka Dunajska Streda wyrzuciła natomiast za burtę Cracovię w 2019 roku. Słowacy byli też bezlitośni dla Legii w 2018, kiedy to Spartak Trnava zakończył marzenia stołecznej drużyny o Lidze Mistrzów. Nie wspominając już o Luksemburskim Dudelange… Słowem – wymienionych siedmiu lig nie bijemy na głowę. Wyprzedzamy je na razie punktowo, ale nie górujemy w sposób zdecydowany. Można powiedzieć, że Ekstraklasa czuje oddech rywali na plecach. 
+
+Zobaczmy ilu drużynom z danego kraju udawało się w poszczególnych sezonach zakwalifikować do Ligi Europy:
+
+<img src="/img/Ekstraklasa/7.png" width="60%" height="60%">
+
+Jeśli chodzi o Ligę Europy – jeszcze nie ma tragedii. Ale jeśli zwrócimy uwagę na ostatnie 5 lat – sytuacja robi się dramatyczna. Podczas gdy od sezonu 16/17 my wprowadziliśmy do LE tylko jedną drużynę, po dwa awanse notowały takie kraje jak: Luksemburg, Irlandia, Węgry, Białoruś czy Słowacja. Trzy razy ta sama sztuka udawała się Szwedom. Serbowie zanotowali w tym samym czasie 4 a Bułgarzy aż 5 sukcesów. Mówiąc inaczej, ostatnie pięć sezonów stawia Polskę na tym samym poziomie co Albanię, Mołdawię i Macedonię. Za nami już tylko przepaść – kraje na granicy między amatorskim kopaniem a profesjonalną piłką.  
+
+Dokładnie ta sama statystyka, czyli liczba drużyn per kraj zakwalifikowana do pucharu, ale tym razem w Lidze Mistrzów wygląda dość podobnie do tej dla Ligi Europy:
+
+<img src="/img/Ekstraklasa/8.png" width="60%" height="60%">
+
+Znajdujemy się na 26 miejscu a od absolutnego upokorzenia i znalezienia się w jednym szeregu z Gibraltarem czy Wyspami Owczymi oddziela nas jedynie szczęśliwy awans Legii Warszawa, która w sezonie 16/17 zakwalifikowała się do Ligi Mistrzów. Szczęśliwy, bo wylosowaliśmy wtedy 
+w eliminacjach drużyny po prostu bardzo słabe. Tyle samo sukcesów co polska Ekstraklasa ma liga Azerbejdżanu, Izraela i Węgier. 
+
+Na tym, rzecz jasna, nie koniec. Esencją pucharów jest etap play-off, czyli drabinka prowadząca do finału. Zobaczmy jak na tym etapie wyglądają polskie zespoły:
+
+<img src="/img/Ekstraklasa/9.png" width="60%" height="60%">
+
+Tym razem przyjąłem trochę inny sposób przedstawienia wyników, żeby zanadto nie komplikować odczytu. W powyższym przykładzie wyniki nie są posortowane po sumie występów w playoffach. Pozycja uzależniona jest od maksymalnego etapu, jaki udało się osiągnąć klubom z danego państwa. Może to trochę kontrowersyjny sposób, bo na przykład Niemcy są w nim dopiero na 8 miejscu z 45 występami w playoffach a Portugalia na pozycji trzeciej, mimo że jej klubom udało się wyjść z grupy „tylko” 37 razy. Ale stwierdziłem, że skoro portugalskie kluby dwa razy znalazły się w finale a trzy razy w półfinale, to jest to lepsze osiągnięcie niż jednokrotny udział klubu niemieckiego w półfinale. 
+Jeśli chodzi o Polskę w playoffach Ligi Europy to w tej statystyce wypadamy nieco lepiej niż w poprzednich. Mamy solidne 22 miejsce i wciąż nadzieję na poprawę – może w tym roku Lech jeszcze powalczy o wyjście z grupy? Polskie drużyny czterokrotnie meldowały się w ostatniej dekadzie w 1/16 tych rozgrywek. Raz była to Wisła Kraków, trzykrotnie Legia Warszawa. 
+Ciekawostka: 7 hiszpańskich drużyn było w finale Ligi Europy od sezonu 2011/12 do 2019/20. Tylko raz hiszpańska drużyna przegrała w finale. A było to wtedy, gdy grała z inną hiszpańską drużyną. To tak na marginesie, gdyby ktoś miał wątpliwości która liga zdominowała europejski futbol w ostatnim dziesięcioleciu. 
+
+I jeszcze, dla formalności, zobaczmy jak wygląda podobna tabela, ale dla Ligi Mistrzów:
+
+<img src="/img/Ekstraklasa/10.png" width="60%" height="60%">
+
+To już absolutna elita. Polski, rzecz jasna, tutaj nie ma. Ciekawostką jest Cypr – APOEL Nikozja w sezonie 2011/12 sensacyjnie wyszedł z grupy LM a potem równie sensacyjnie wyeliminował Olympique Lyon w 1/8 finału. Podobnie jak w Lidze Europy – dominuje Hiszpania. Dwa z siedmiu przegranych przez hiszpańskie drużyny finałów to – niespodzianka – dwukrotne spotkania hiszpańsko-hiszpańskie, konkretnie Realu z Atletico. Trend się trochę zmienia, Niemcy i Anglicy wyraźnie nadrobili zaległości w ostatnich latach a Real i Barcelona mają duże problemy. Ale patrząc na całą dekadę – zdecydowanie trzeba uznać dominację klubów z Primiera Division w europejskich rozgrywkach.
+
+# Odpowiadam na pytanie
+
+Podsumowując, z polską piłką klubową nie jest dobrze. Rzut oka na ostatnie 10 sezonów pokazuje, że nasze obecne 30 miejsce w rankingu UEFA nie jest przypadkiem. O ile w latach 2011-2016 gościliśmy w Europie regularnie, o tyle później bywaliśmy tam już raczej egzotycznym gościem. Zanotowaliśmy rekordowy spadek w rankingu, ramię w ramię z Islandią, Gruzją i Finlandią. Do pucharów kwalifikujemy się coraz rzadziej. Nasze miejsca zajmują kluby z Azerbejdżanu, Luksemburga i Mołdawii. Ale żeby nie kończyć zupełnie depresyjnie - niech tegoroczny występ Lecha w Lidze Europy będzie światełkiem w tunelu i niech pokaże w jaki sposób polskie kluby mogą budować swoją jakąkolwiek konkurencyjność w Europie. Filarem zespołu muszą być wychowankowie, sprzedawani następnie za kwoty na europejskim poziomie. Może okres prezesury Dariusza Mioduskiego w Legii nie jest najlepszym czasem tego klubu, ale zbudowana przez niego akademia piłkarska może pozwolić na dalszy rozwój, biorąc przykład ze szkolenia w Lechu. Oby nadchodząca dekada była lepsza. Przynajmniej lepsza niż ostatnie pięć lat. Bo gorzej już właściwie być nie może. 
+
+*Edit: jednak może być gorzej – wczoraj obejrzałem mecz Polska-Włochy w Lidze Narodów. Wiem, że to zupełnie co innego, bo to piłka reprezentacyjna a nie klubowa, ale to co wczoraj zobaczyłem to był jednak poziom niższy niż to, co prezentują polskie kluby na arenie międzynarodowej, przy czym potencjał piłkarski znacząco wyższy. Więc tak, może być gorzej. *
